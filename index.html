@@ -20,27 +20,45 @@
 
     <script type="text/babel">
 
-        const bquoteHeader = React.createElement(
-            'h5',
-            { className: "txt-cyan" },
-            "A famous quote for you"
+        class Quote extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+
+            render() {
+                return (
+                    <div className="blockquote">
+                        <h5 className="txt-cyan">{this.props.header}</h5>
+                        <p>{this.props.quote}</p>
+                        <footer className="blockquote-footer">{this.props.footer}</footer>
+                    </div>
+                );
+            }
+        }
+
+        const bquote1 = (
+            <React.Fragment>
+                <Quote
+                    header=""
+                    quote="The greatest glory in living lies not in never falling, but in rising every time we fall."
+                    footer="Nelson Mandela"
+                />
+                <Quote
+                    header=""
+                    quote="The way to get started is to quit talking and begin doing."
+                    footer="Walt Disney"
+                />
+                <Quote
+                    header=""
+                    quote="Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking."
+                    footer="Steve Job"
+                />
+            </React.Fragment>
         );
 
-        const bquoteFooter = React.createElement(
-            'footer',
-            { className: "blockquote-footer" },
-            'Steve Job'
-        );
+        console.log(bquote1);
 
-        const bquote = React.createElement(
-            'div',
-            { className: "blockquote" },
-            bquoteHeader,
-            "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking.",
-            bquoteFooter
-        );
-
-        ReactDOM.render(bquote,
+        ReactDOM.render(bquote1,
             document.getElementById("container"));
     </script>
 </body>
