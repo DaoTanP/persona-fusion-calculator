@@ -1,0 +1,2930 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bitter&family=Comfortaa&family=Comic+Neue:wght@400;700&family=Coming+Soon&family=Cormorant+Garamond&family=Dosis:wght@800&family=EB+Garamond&family=Josefin+Sans&family=Lora&family=Merriweather&family=Montserrat:wght@400;900&family=Noto+Serif&family=Nunito+Sans:wght@400;700;900&family=PT+Serif&family=Patrick+Hand&family=Playfair+Display&family=Poppins&family=Satisfy&family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+/* #region Flat */
+:root {
+    /* #region ENDESGA 8 COLOR PALETTE */
+    /* https://lospec.com/palette-list/endesga-8 */
+    --red-endesga: #d32734;
+    --orange-endesga: #da7d22;
+    --yellow-endesga: #e6da29;
+    --green-endesga: #28c641;
+    --blue-endesga: #2d93dd;
+    --purple-endesga: #7b53ad;
+    /* #endregion */
+
+    /* #region Flat color 
+    https://www.pinterest.com/pin/220817187971632893/
+    --shadow-red:#f1717133;
+    --lighter-red:#f6a2a2;
+    --light-red:#f17171;
+    --red:      #ee4d4d;
+    --dark-red: #d64545;
+    --darker-red: #950e0e;
+
+    --shadow-orange:#ffa07133;
+    --lighter-orange:#ffbb99;
+    --light-orange:#ffa071;
+    --orange:      #ff884d;
+    --dark-orange: #e57a45;
+    --darker-orange: #98441b;
+
+    --shadow-yellow:#ffd07133;
+    --lighter-yellow:#ffdd99;
+    --light-yellow:#ffd071;
+    --yellow:      #ffc44d;
+    --dark-yellow: #e5b045;
+    --darker-yellow: #986e1b;
+
+    --shadow-green:#a2d47133;
+    --lighter-green:#b3db8a;
+    --light-green:#a2d471;
+    --green:      #8bc94d;
+    --dark-green: #7db545;
+    --darker-green: #40621e;
+
+    --shadow-mint:#71e2d033;
+    --lighter-mint:#8de8d8;
+    --light-mint:#71e2d0;
+    --mint:      #4ddbc4;
+    --dark-mint: #45c5b0;
+    --darker-mint: #187767;
+
+    --shadow-cyan:#71d0ff33;
+    --lighter-cyan:#99ddff;
+    --light-cyan:#71d0ff;
+    --cyan:      #4dc4ff;
+    --dark-cyan: #0484d1;
+    --darker-cyan: #2d6886;
+
+    --shadow-blue:#7ea9ff33;
+    --lighter-blue:#a8c5ff;
+    --light-blue:#7ea9ff;
+    --blue:      #5e94ff;
+    --dark-blue: #5485e5;
+    --darker-blue: #0041c2;
+
+    --shadow-purple:#838dff33;
+    --lighter-purple:#d3bdff;
+    --light-purple:#838dff;
+    --purple:      #a071ff;
+    --dark-purple: #9065e5;
+    --darker-purple: #6b00d6;
+
+    --shadow-pink:#ff71b733;
+    --lighter-pink:#ff99cc;
+    --light-pink:#ff71b7;
+    --pink:      #ff4da5;
+    --dark-pink: #e54594;
+    --darker-pink: #b30059;
+
+    --shadow-gray:#B2BEC333;
+    --lighter-gray:#f1f3f4;
+    --light-gray:#DFE6E9;
+    --gray:      #B2BEC3;
+    --dark-gray: #636E72;
+    --gray-600: #2D3436;
+    */
+
+    --shadow-red: #e74c3c33;
+    --lighter-red: #f1948a;
+    --light-red: #ec7163;
+    --red: #e74c3c;
+    --dark-red: #c0392b;
+    --darker-red: #811b10;
+
+    --shadow-orange: #e67e2233;
+    --lighter-orange: #f0b27b;
+    --light-orange: #eb984f;
+    --orange: #e67e22;
+    --dark-orange: #d35400;
+    --darker-orange: #773f0d;
+
+    --shadow-yellow: #f1c40f33;
+    --lighter-yellow: #f7db6e;
+    --light-yellow: #f4cf3e;
+    --yellow: #f1c40f;
+    --dark-yellow: #f39c12;
+    --darker-yellow: #786207;
+
+    --shadow-green: #2ecc7133;
+    --lighter-green: #80e2a9;
+    --light-green: #55d98c;
+    --green: #2ecc71;
+    --dark-green: #27ae60;
+    --darker-green: #176638;
+
+    --shadow-mint: #1abc9c33;
+    --lighter-mint: #63eacf;
+    --light-mint: #2fe3bf;
+    --mint: #1abc9c;
+    --dark-mint: #16a085;
+    --darker-mint: #0d5e4e;
+
+    --shadow-cyan: #71d0ff33;
+    --lighter-cyan: #99ddff;
+    --light-cyan: #71d0ff;
+    --cyan: #4dc4ff;
+    --dark-cyan: #0484d1;
+    --darker-cyan: #2d6886;
+
+    --shadow-blue: #3498db33;
+    --lighter-blue: #85c1e9;
+    --light-blue: #5cade2;
+    --blue: #3498db;
+    --dark-blue: #2980b9;
+    --darker-blue: #144d73;
+
+    --shadow-purple: #9b59b633;
+    --lighter-purple: #c39bd3;
+    --light-purple: #af7ac5;
+    --purple: #9b59b6;
+    --dark-purple: #8e44ad;
+    --darker-purple: #4f295e;
+
+    --shadow-pink: #ff71b733;
+    --lighter-pink: #ff99cc;
+    --light-pink: #ff71b7;
+    --pink: #ff4da5;
+    --dark-pink: #e54594;
+    --darker-pink: #b30059;
+
+    --shadow-gray: #95a5a633;
+    --gray-100: #ecf0f1;
+    --gray-200: #bdc3c7;
+    --gray-300: #95a5a6;
+    --gray-400: #7f8c8d;
+    --gray-500: #34495e;
+    --gray-600: #2c3e50;
+
+    --color-shadow: var(--shadow-mint);
+    --color-lighter: var(--lighter-mint);
+    --color-light: var(--light-mint);
+    --color: var(--mint);
+    --color-dark: var(--dark-mint);
+    --color-darker: var(--darker-mint);
+
+    --background: #fff;
+    --text: var(--gray-600);
+    --border-color: var(--text);
+
+    /* #region Font Style */
+    --serif-safe: Georgia, "Times New Roman", Times, serif;
+    --sans-serif-safe: Arial, Helvetica, Tahoma, Verdana, sans-serif;
+    --monospace-safe: 'Courier New', Courier, monospace;
+    --cursive-safe: "Brush Script MT", cursive;
+    --fantasy-safe: Copperplate, Papyrus, fantasy;
+
+    --serif: 'Noto Serif', 'Arvo', 'Bitter', 'Cormorant Garamond', 'EB Garamond', 'Lora', 'Merriweather', 'Playfair Display', 'PT Serif', Georgia, "Times New Roman", Times, serif;
+    --sans-serif: 'Nunito Sans', 'Montserrat', 'Josefin Sans', 'Poppins', 'Dosis', Arial, Helvetica, Tahoma, Verdana, sans-serif;
+    --cursive: 'Satisfy', 'Patrick Hand', 'Coming Soon', 'Comfortaa', 'Comic Neue', "Brush Script MT", cursive;
+    --monospace: 'Courier New', Courier, monospace;
+    --pixel: 'VT323', monospace;
+    /* #endregion Font Style */
+
+    font-size: 16px;
+
+    --transition-time: 0.15s;
+}
+
+/* #region W3 Flat Color */
+.w3-flat-turquoise {
+    background-color: #1abc9c
+}
+.w3-flat-green-sea {
+    background-color: #16a085
+}
+
+.w3-flat-emerald {
+    background-color: #2ecc71
+}
+.w3-flat-nephritis {
+    background-color: #27ae60
+}
+
+.w3-flat-peter-river {
+    background-color: #3498db
+}
+.w3-flat-belize-hole {
+    background-color: #2980b9
+}
+
+.w3-flat-amethyst {
+    background-color: #9b59b6
+}
+.w3-flat-wisteria {
+    background-color: #8e44ad
+}
+
+.w3-flat-wet-asphalt {
+    background-color: #34495e
+}
+.w3-flat-midnight-blue {
+    background-color: #2c3e50
+}
+
+.w3-flat-sun-flower {
+    background-color: #f1c40f
+}
+.w3-flat-orange {
+    background-color: #f39c12
+}
+
+.w3-flat-carrot {
+    background-color: #e67e22
+}
+.w3-flat-pumpkin {
+    background-color: #d35400
+}
+
+.w3-flat-alizarin {
+    background-color: #e74c3c
+}
+.w3-flat-pomegranate {
+    background-color: #c0392b
+}
+
+.w3-flat-clouds {
+    background-color: #ecf0f1
+}
+.w3-flat-silver {
+    background-color: #bdc3c7
+}
+
+.w3-flat-concrete {
+    background-color: #95a5a6
+}
+.w3-flat-asbestos {
+    background-color: #7f8c8d
+}
+/* #endregion W3 Flat Color */
+
+/* #region Primary Color */
+.color-red {
+    --color-shadow: var(--shadow-red);
+    --color-lighter: var(--lighter-red);
+    --color-light: var(--light-red);
+    --color: var(--red);
+    --color-dark: var(--dark-red);
+    --color-darker: var(--darker-red);
+}
+.color-orange {
+    --color-shadow: var(--shadow-orange);
+    --color-lighter: var(--lighter-orange);
+    --color-light: var(--light-orange);
+    --color: var(--orange);
+    --color-dark: var(--dark-orange);
+    --color-darker: var(--darker-orange);
+}
+.color-yellow {
+    --color-shadow: var(--shadow-yellow);
+    --color-lighter: var(--lighter-yellow);
+    --color-light: var(--light-yellow);
+    --color: var(--yellow);
+    --color-dark: var(--dark-yellow);
+    --color-darker: var(--darker-yellow);
+}
+.color-green {
+    --color-shadow: var(--shadow-green);
+    --color-lighter: var(--lighter-green);
+    --color-light: var(--light-green);
+    --color: var(--green);
+    --color-dark: var(--dark-green);
+    --color-darker: var(--darker-green);
+}
+.color-mint {
+    --color-shadow: var(--shadow-mint);
+    --color-lighter: var(--lighter-mint);
+    --color-light: var(--light-mint);
+    --color: var(--mint);
+    --color-dark: var(--dark-mint);
+    --color-darker: var(--darker-mint);
+}
+.color-cyan {
+    --color-shadow: var(--shadow-cyan);
+    --color-lighter: var(--lighter-cyan);
+    --color-light: var(--light-cyan);
+    --color: var(--cyan);
+    --color-dark: var(--dark-cyan);
+    --color-darker: var(--darker-cyan);
+}
+.color-blue {
+    --color-shadow: var(--shadow-blue);
+    --color-lighter: var(--lighter-blue);
+    --color-light: var(--light-blue);
+    --color: var(--blue);
+    --color-dark: var(--dark-blue);
+    --color-darker: var(--darker-blue);
+}
+.color-purple {
+    --color-shadow: var(--shadow-purple);
+    --color-lighter: var(--lighter-purple);
+    --color-light: var(--light-purple);
+    --color: var(--purple);
+    --color-dark: var(--dark-purple);
+    --color-darker: var(--darker-purple);
+}
+.color-pink {
+    --color-shadow: var(--shadow-pink);
+    --color-lighter: var(--lighter-pink);
+    --color-light: var(--light-pink);
+    --color: var(--pink);
+    --color-dark: var(--dark-pink);
+    --color-darker: var(--darker-pink);
+}
+
+/* #endregion Primary Color */
+
+* {
+    box-sizing: border-box;
+    transition: var(--transition-time);
+    -webkit-text-size-adjust: none;
+}
+*::before, *::after {
+    box-sizing: border-box
+}
+
+/* #region Scrollbar */
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-500) transparent
+        /* #00000050 */
+    ;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent
+        /* #00000050 */
+    ;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--gray-500);
+    border-radius: 20px;
+    border: 1px solid var(--gray-500);
+}
+/* #endregion Scrollbar */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: var(--sans-serif);
+    line-height: 1.5;
+}
+
+html {
+    background-color: var(--background);
+    color: var(--text);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    background-color: transparent;
+}
+
+/* #region Typography */
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1, .h1 {
+    font-size: 2.5rem
+}
+h2, .h2 {
+    font-size: 2rem
+}
+h3, .h3 {
+    font-size: 1.75rem
+}
+h4, .h4 {
+    font-size: 1.5rem
+}
+h5, .h5 {
+    font-size: 1.25rem
+}
+h6, .h6 {
+    font-size: 1rem
+}
+
+.display-1, .display-2, .display-3, .display-4 {
+    font-weight: 100;
+    line-height: 1.3;
+}
+.display-1 {
+    font-size: 5rem
+}
+.display-2 {
+    font-size: 3.5rem
+}
+.display-3 {
+    font-size: 2.5rem
+}
+.display-4 {
+    font-size: 1.875rem
+}
+
+@media (max-width: 1200px) {
+    h1, .h1 {
+        font-size: calc(1.375rem + 1.5vw)
+    }
+    h2, .h2 {
+        font-size: calc(1.325rem + 0.9vw)
+    }
+    h3, .h3 {
+        font-size: calc(1.3rem + 0.6vw)
+    }
+    h4, .h4 {
+        font-size: calc(1.275rem + 0.3vw)
+    }
+
+    .display-1 {
+        font-size: calc(1.625rem + 4.5vw)
+    }
+    .display-2 {
+        font-size: calc(1.475rem + 2.7vw)
+    }
+    .display-3 {
+        font-size: calc(1.375rem + 1.5vw)
+    }
+    .display-4 {
+        font-size: calc(1.3125rem + 0.75vw)
+    }
+}
+
+small {
+    font-size: 80%;
+}
+
+sub, sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -.25em;
+}
+
+sup {
+    top: -.5em;
+}
+
+
+mark {
+    background-color: yellow;
+    padding-left: .25em;
+    padding-right: .25em
+}
+
+abbr {
+    cursor: help;
+    text-decoration: underline dotted;
+}
+
+q {
+    font-family: var(--serif);
+    font-style: italic;
+}
+q::before, q::after {
+    padding-inline: .2em
+}
+
+/* Blockquote example
+<blockquote class="blockquote">
+    <p>For 50 years, <abbr
+        title="World Wide Fund for Nature International non-governmental organization">WWF</abbr>
+        has been protecting the future of nature. The world's <q>leading conservation</q> organization,
+        <abbr title="World Wide Fund for Nature International non-governmental organization">WWF</abbr> works in
+        100 countries and is supported by 1.2 million members in the United States and close to 5 million
+        globally.
+    </p>
+    <footer class="blockquote-footer">From WWF's website</footer>
+</blockquote>
+*/
+.blockquote {
+    border-left: 3px solid var(--gray-400);
+    padding-inline: 2rem
+}
+footer.blockquote-footer {
+    color: var(--gray-400)
+}
+footer.blockquote-footer::before {
+    content: '\2014';
+    user-select: none;
+    margin-right: .25em;
+}
+
+/* Description List example
+        <p>The dl element indicates a description list:</p>
+        <dl>
+            <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+            <dt>Milk</dt>
+            <dd>- white cold drink</dd>
+        </dl>
+*/
+dt {
+    font-weight: bold
+}
+dd {
+    margin-inline-start: 1ch
+}
+
+code, kbd, pre {
+    font-family: var(--monospace)
+}
+
+code {
+    color: var(--pink)
+}
+
+kbd {
+    font-size: .9em;
+    background-color: #2a2d33;
+    border-radius: .25em;
+    padding: .25em;
+    color: white;
+}
+
+.pre-scrollable {
+    height: 340px;
+    overflow: scroll;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    user-select: none;
+    font-size: auto;
+    vertical-align: middle;
+    transform: translateY(-.1em);
+}
+
+.txt-white {
+    color: var(--gray-100)
+}
+.txt-red {
+    color: var(--dark-red)
+}
+.txt-orange {
+    color: var(--dark-orange)
+}
+.txt-yellow {
+    color: var(--dark-yellow)
+}
+.txt-green {
+    color: var(--dark-green)
+}
+.txt-mint {
+    color: var(--dark-mint)
+}
+.txt-cyan {
+    color: var(--dark-cyan)
+}
+.txt-blue {
+    color: var(--dark-blue)
+}
+.txt-purple {
+    color: var(--dark-purple)
+}
+.txt-pink {
+    color: var(--dark-pink)
+}
+.txt-gray {
+    color: var(--gray-600)
+}
+
+.bg-white {
+    background-color: var(--gray-100)
+}
+.bg-red {
+    background-color: var(--red)
+}
+.bg-orange {
+    background-color: var(--orange)
+}
+.bg-yellow {
+    background-color: var(--yellow)
+}
+.bg-green {
+    background-color: var(--green)
+}
+.bg-mint {
+    background-color: var(--mint)
+}
+.bg-cyan {
+    background-color: var(--cyan)
+}
+.bg-blue {
+    background-color: var(--blue)
+}
+.bg-purple {
+    background-color: var(--purple)
+}
+.bg-pink {
+    background-color: var(--pink)
+}
+.bg-gray {
+    background-color: var(--gray-600)
+}
+
+.txt-left {
+    text-align: left
+}
+.txt-center {
+    text-align: center
+}
+.txt-right {
+    text-align: right
+}
+.txt-justify {
+    text-align: justify
+}
+.txt-nowrap {
+    white-space: nowrap
+}
+.txt-break {
+    word-break: break-all
+}
+.txt-monospace {
+    font-family: var(--monospace)
+}
+
+.txt-uppercase {
+    text-transform: uppercase
+}
+.txt-lowercase {
+    text-transform: lowercase
+}
+.txt-capitalize {
+    text-transform: capitalize
+}
+
+.txt-underline {
+    text-decoration: underline
+}
+.txt-overline {
+    text-decoration: overline
+}
+.txt-strike {
+    text-decoration: line-through
+}
+.txt-no-decoration {
+    text-decoration: none
+}
+
+.txt-wrapped {
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+.txt-wrapped.max-line-2 {
+    -webkit-line-clamp: 2
+}
+.txt-wrapped.max-line-3 {
+    -webkit-line-clamp: 3
+}
+.txt-wrapped.max-line-4 {
+    -webkit-line-clamp: 4
+}
+.txt-wrapped.max-line-5 {
+    -webkit-line-clamp: 5
+}
+
+.font-serif {
+    font-family: var(--serif)
+}
+.font-sans-serif {
+    font-family: var(--sans-serif)
+}
+.font-monospace {
+    font-family: var(--monospace)
+}
+.font-cursive {
+    font-family: var(--cursive)
+}
+.font-fantasy {
+    font-family: var(--fantasy)
+}
+
+.font-xxs {
+    font-size: 0.25rem
+}
+.font-xs {
+    font-size: 0.5rem
+}
+.font-sm {
+    font-size: 0.875rem
+}
+.font-md {
+    font-size: 1.25rem
+}
+.font-lg {
+    font-size: 1.5rem
+}
+.font-xl {
+    font-size: 2rem
+}
+.font-xxl {
+    font-size: 3rem
+}
+
+.font-weight-100 {
+    font-weight: 100 !important
+}
+.font-weight-200 {
+    font-weight: 200 !important
+}
+.font-weight-300 {
+    font-weight: 300 !important
+}
+.font-weight-400 {
+    font-weight: 400 !important
+}
+.font-weight-500 {
+    font-weight: 500 !important
+}
+.font-weight-600 {
+    font-weight: 600 !important
+}
+.font-weight-700 {
+    font-weight: 700 !important
+}
+.font-weight-800 {
+    font-weight: 800 !important
+}
+.font-weight-900 {
+    font-weight: 900 !important
+}
+
+a:link {
+    display: inline-block;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* #endregion Typography */
+
+/* #region Spacing */
+.mar-xs {
+    margin: .25em
+}
+.mar-sm {
+    margin: .5em
+}
+.mar-md {
+    margin: 1em
+}
+.mar-lg {
+    margin: 2.5em
+}
+.mar-xl {
+    margin: 5em
+}
+.mar-xxl {
+    margin: 10em
+}
+
+.mar-child-xs>* {
+    margin: .25em
+}
+.mar-child-sm>* {
+    margin: .5em
+}
+.mar-child-md>* {
+    margin: 1em
+}
+.mar-child-lg>* {
+    margin: 2.5em
+}
+.mar-child-xl>* {
+    margin: 5em
+}
+.mar-child-xxl>* {
+    margin: 10em
+}
+
+.mar-auto {
+    margin: auto
+}
+.mar-tb-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mar-lr-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mar-t-xs {
+    margin-top: .25em
+}
+.mar-t-sm {
+    margin-top: .5em
+}
+.mar-t-md {
+    margin-top: 1em
+}
+.mar-t-lg {
+    margin-top: 2.5em
+}
+.mar-t-xl {
+    margin-top: 5em
+}
+.mar-t-xxl {
+    margin-top: 10em
+}
+
+.mar-b-xs {
+    margin-bottom: .25em
+}
+.mar-b-sm {
+    margin-bottom: .5em
+}
+.mar-b-md {
+    margin-bottom: 1em
+}
+.mar-b-lg {
+    margin-bottom: 2.5em
+}
+.mar-b-xl {
+    margin-bottom: 5em
+}
+.mar-b-xxl {
+    margin-bottom: 10em
+}
+
+.mar-tb-xs {
+    margin-top: .25em;
+    margin-bottom: .25em
+}
+.mar-tb-sm {
+    margin-top: .5em;
+    margin-bottom: .5em
+}
+.mar-tb-md {
+    margin-top: 1em;
+    margin-bottom: 1em
+}
+.mar-tb-lg {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em
+}
+.mar-tb-xl {
+    margin-top: 5em;
+    margin-bottom: 5em
+}
+.mar-tb-xxl {
+    margin-top: 10em;
+    margin-bottom: 10em
+}
+
+.mar-l-xs {
+    margin-left: .25em
+}
+.mar-l-sm {
+    margin-left: .5em
+}
+.mar-l-md {
+    margin-left: 1em
+}
+.mar-l-lg {
+    margin-left: 2.5em
+}
+.mar-l-xl {
+    margin-left: 5em
+}
+.mar-l-xxl {
+    margin-left: 10em
+}
+
+.mar-r-xs {
+    margin-right: .25em
+}
+.mar-r-sm {
+    margin-right: .5em
+}
+.mar-r-md {
+    margin-right: 1em
+}
+.mar-r-lg {
+    margin-right: 2.5em
+}
+.mar-r-xl {
+    margin-right: 5em
+}
+.mar-r-xxl {
+    margin-right: 10em
+}
+
+.mar-lr-xs {
+    margin-left: .25em;
+    margin-right: .25em
+}
+.mar-lr-sm {
+    margin-left: .5em;
+    margin-right: .5em
+}
+.mar-lr-md {
+    margin-left: 1em;
+    margin-right: 1em
+}
+.mar-lr-lg {
+    margin-left: 2.5em;
+    margin-right: 2.5em
+}
+.mar-lr-xl {
+    margin-left: 5em;
+    margin-right: 5em
+}
+.mar-lr-xxl {
+    margin-left: 10em;
+    margin-right: 10em
+}
+
+.pad-xs {
+    padding: .25em
+}
+.pad-sm {
+    padding: .5em
+}
+.pad-md {
+    padding: 1em
+}
+.pad-lg {
+    padding: 2.5em
+}
+.pad-xl {
+    padding: 5em
+}
+.pad-xxl {
+    padding: 10em
+}
+
+.pad-child-xs>* {
+    padding: .25em
+}
+.pad-child-sm>* {
+    padding: .5em
+}
+.pad-child-md>* {
+    padding: 1em
+}
+.pad-child-lg>* {
+    padding: 2.5em
+}
+.pad-child-xl>* {
+    padding: 5em
+}
+.pad-child-xxl>* {
+    padding: 10em
+}
+
+.pad-t-xs {
+    padding-top: .25em
+}
+.pad-t-sm {
+    padding-top: .5em
+}
+.pad-t-md {
+    padding-top: 1em
+}
+.pad-t-lg {
+    padding-top: 2.5em
+}
+.pad-t-xl {
+    padding-top: 5em
+}
+.pad-t-xxl {
+    padding-top: 10em
+}
+
+.pad-b-xs {
+    padding-bottom: .25em
+}
+.pad-b-sm {
+    padding-bottom: .5em
+}
+.pad-b-md {
+    padding-bottom: 1em
+}
+.pad-b-lg {
+    padding-bottom: 2.5em
+}
+.pad-b-xl {
+    padding-bottom: 5em
+}
+.pad-b-xxl {
+    padding-bottom: 10em
+}
+
+.pad-tb-xs {
+    padding-top: .25em;
+    padding-bottom: .25em
+}
+.pad-tb-sm {
+    padding-top: .5em;
+    padding-bottom: .5em
+}
+.pad-tb-md {
+    padding-top: 1em;
+    padding-bottom: 1em
+}
+.pad-tb-lg {
+    padding-top: 2.5em;
+    padding-bottom: 2.5em
+}
+.pad-tb-xl {
+    padding-top: 5em;
+    padding-bottom: 5em
+}
+.pad-tb-xxl {
+    padding-top: 10em;
+    padding-bottom: 10em
+}
+
+.pad-l-xs {
+    padding-left: .25em
+}
+.pad-l-sm {
+    padding-left: .5em
+}
+.pad-l-md {
+    padding-left: 1em
+}
+.pad-l-lg {
+    padding-left: 2.5em
+}
+.pad-l-xl {
+    padding-left: 5em
+}
+.pad-l-xxl {
+    padding-left: 10em
+}
+
+.pad-r-xs {
+    padding-right: .25em
+}
+.pad-r-sm {
+    padding-right: .5em
+}
+.pad-r-md {
+    padding-right: 1em
+}
+.pad-r-lg {
+    padding-right: 2.5em
+}
+.pad-r-xl {
+    padding-right: 5em
+}
+.pad-r-xxl {
+    padding-right: 10em
+}
+
+.pad-lr-xs {
+    padding-left: .25em;
+    padding-right: .25em
+}
+.pad-lr-sm {
+    padding-left: .5em;
+    padding-right: .5em
+}
+.pad-lr-md {
+    padding-left: 1em;
+    padding-right: 1em
+}
+.pad-lr-lg {
+    padding-left: 2.5em;
+    padding-right: 2.5em
+}
+.pad-lr-xl {
+    padding-left: 5em;
+    padding-right: 5em
+}
+.pad-lr-xxl {
+    padding-left: 10em;
+    padding-right: 10em
+}
+/* #endregion Spacing */
+
+.float-left {
+    float: left
+}
+.float-start {
+    float: inline-start
+}
+.float-end {
+    float: inline-end
+}
+.float-right {
+    float: right
+}
+
+/* #region Sizing */
+.max-width-auto {
+    max-width: auto
+}
+.max-width-min {
+    max-width: min-content
+}
+.max-width-fit {
+    max-width: fit-content
+}
+.max-width-max {
+    max-width: max-content
+}
+.max-width-5 {
+    max-width: 5%
+}
+.max-width-10 {
+    max-width: 10%
+}
+.max-width-15 {
+    max-width: 15%
+}
+.max-width-20 {
+    max-width: 20%
+}
+.max-width-25 {
+    max-width: 25%
+}
+.max-width-33 {
+    max-width: 33%
+}
+.max-width-50 {
+    max-width: 50%
+}
+.max-width-67 {
+    max-width: 67%
+}
+.max-width-75 {
+    max-width: 75%
+}
+.max-width-100 {
+    max-width: 100%
+}
+
+.width-auto {
+    width: auto
+}
+.width-min {
+    width: min-content
+}
+.width-fit {
+    width: fit-content
+}
+.width-max {
+    width: max-content
+}
+.width-5 {
+    width: 5%
+}
+.width-10 {
+    width: 10%
+}
+.width-15 {
+    width: 15%
+}
+.width-20 {
+    width: 20%
+}
+.width-25 {
+    width: 25%
+}
+.width-33 {
+    width: 33%
+}
+.width-50 {
+    width: 50%
+}
+.width-67 {
+    width: 67%
+}
+.width-75 {
+    width: 75%
+}
+.width-100 {
+    width: 100%
+}
+
+.min-width-auto {
+    min-width: auto
+}
+.min-width-min {
+    min-width: min-content
+}
+.min-width-fit {
+    min-width: fit-content
+}
+.min-width-max {
+    min-width: max-content
+}
+.min-width-5 {
+    min-width: 5%
+}
+.min-width-10 {
+    min-width: 10%
+}
+.min-width-15 {
+    min-width: 15%
+}
+.min-width-20 {
+    min-width: 20%
+}
+.min-width-25 {
+    min-width: 25%
+}
+.min-width-33 {
+    min-width: 33%
+}
+.min-width-50 {
+    min-width: 50%
+}
+.min-width-67 {
+    min-width: 67%
+}
+.min-width-75 {
+    min-width: 75%
+}
+.min-width-100 {
+    min-width: 100%
+}
+
+.max-height-auto {
+    max-height: auto
+}
+.max-height-min {
+    max-height: min-content
+}
+.max-height-fit {
+    max-height: fit-content
+}
+.max-height-max {
+    max-height: max-content
+}
+.max-height-5 {
+    max-height: 5%
+}
+.max-height-10 {
+    max-height: 10%
+}
+.max-height-15 {
+    max-height: 15%
+}
+.max-height-20 {
+    max-height: 20%
+}
+.max-height-25 {
+    max-height: 25%
+}
+.max-height-33 {
+    max-height: 33%
+}
+.max-height-50 {
+    max-height: 50%
+}
+.max-height-67 {
+    max-height: 67%
+}
+.max-height-75 {
+    max-height: 75%
+}
+.max-height-100 {
+    max-height: 100%
+}
+
+.height-auto {
+    height: auto
+}
+.height-min {
+    height: min-content
+}
+.height-fit {
+    height: fit-content
+}
+.height-max {
+    height: max-content
+}
+.height-5 {
+    height: 5%
+}
+.height-10 {
+    height: 10%
+}
+.height-15 {
+    height: 15%
+}
+.height-20 {
+    height: 20%
+}
+.height-25 {
+    height: 25%
+}
+.height-33 {
+    height: 33%
+}
+.height-50 {
+    height: 50%
+}
+.height-67 {
+    height: 67%
+}
+.height-75 {
+    height: 75%
+}
+.height-100 {
+    height: 100%
+}
+
+.min-height-auto {
+    min-height: auto
+}
+.min-height-min {
+    min-height: min-content
+}
+.min-height-fit {
+    min-height: fit-content
+}
+.min-height-max {
+    min-height: max-content
+}
+.min-height-5 {
+    min-height: 5%
+}
+.min-height-10 {
+    min-height: 10%
+}
+.min-height-15 {
+    min-height: 15%
+}
+.min-height-20 {
+    min-height: 20%
+}
+.min-height-25 {
+    min-height: 25%
+}
+.min-height-33 {
+    min-height: 33%
+}
+.min-height-50 {
+    min-height: 50%
+}
+.min-height-67 {
+    min-height: 67%
+}
+.min-height-75 {
+    min-height: 75%
+}
+.min-height-100 {
+    min-height: 100%
+}
+/* #endregion Sizing */
+
+.hidden {
+    visibility: hidden
+}
+.disappeared {
+    display: none
+}
+
+/* #region Border */
+.borderless {
+    border: none
+}
+.no-outline {
+    outline: none
+}
+
+.bordered-xxs {
+    border: 1px solid var(--color-dark)
+}
+.bordered-xs {
+    border: 0.15rem solid var(--color-dark)
+}
+.bordered-sm {
+    border: 0.3rem solid var(--color-dark)
+}
+.bordered-md {
+    border: 0.6rem solid var(--color-dark)
+}
+.bordered-lg {
+    border: 1.2rem solid var(--color-dark)
+}
+.bordered-xl {
+    border: 2.4rem solid var(--color-dark)
+}
+.bordered-xxl {
+    border: 3.2rem solid var(--color-dark)
+}
+
+.bordered-t-xxs {
+    border-top: 1px solid var(--color-dark)
+}
+.bordered-t-xs {
+    border-top: 0.15rem solid var(--color-dark)
+}
+.bordered-t-sm {
+    border-top: 0.3rem solid var(--color-dark)
+}
+.bordered-t-md {
+    border-top: 0.6rem solid var(--color-dark)
+}
+.bordered-t-lg {
+    border-top: 1.2rem solid var(--color-dark)
+}
+.bordered-t-xl {
+    border-top: 2.4rem solid var(--color-dark)
+}
+.bordered-t-xxl {
+    border-top: 3.2rem solid var(--color-dark)
+}
+
+.bordered-b-xxs {
+    border-bottom: 1px solid var(--color-dark)
+}
+.bordered-b-xs {
+    border-bottom: 0.15rem solid var(--color-dark)
+}
+.bordered-b-sm {
+    border-bottom: 0.3rem solid var(--color-dark)
+}
+.bordered-b-md {
+    border-bottom: 0.6rem solid var(--color-dark)
+}
+.bordered-b-lg {
+    border-bottom: 1.2rem solid var(--color-dark)
+}
+.bordered-b-xl {
+    border-bottom: 2.4rem solid var(--color-dark)
+}
+.bordered-b-xxl {
+    border-bottom: 3.2rem solid var(--color-dark)
+}
+
+.bordered-l-xxs {
+    border-left: 1px solid var(--color-dark)
+}
+.bordered-l-xs {
+    border-left: 0.15rem solid var(--color-dark)
+}
+.bordered-l-sm {
+    border-left: 0.3rem solid var(--color-dark)
+}
+.bordered-l-md {
+    border-left: 0.6rem solid var(--color-dark)
+}
+.bordered-l-lg {
+    border-left: 1.2rem solid var(--color-dark)
+}
+.bordered-l-xl {
+    border-left: 2.4rem solid var(--color-dark)
+}
+.bordered-l-xxl {
+    border-left: 3.2rem solid var(--color-dark)
+}
+
+.bordered-r-xxs {
+    border-right: 1px solid var(--color-dark)
+}
+.bordered-r-xs {
+    border-right: 0.15rem solid var(--color-dark)
+}
+.bordered-r-sm {
+    border-right: 0.3rem solid var(--color-dark)
+}
+.bordered-r-md {
+    border-right: 0.6rem solid var(--color-dark)
+}
+.bordered-r-lg {
+    border-right: 1.2rem solid var(--color-dark)
+}
+.bordered-r-xl {
+    border-right: 2.4rem solid var(--color-dark)
+}
+.bordered-r-xxl {
+    border-right: 3.2rem solid var(--color-dark)
+}
+
+.rounded-xs {
+    border-radius: .25em
+}
+.rounded-sm {
+    border-radius: .5em
+}
+.rounded-md {
+    border-radius: 1em
+}
+.rounded-lg {
+    border-radius: 2.5em
+}
+.rounded-xl {
+    border-radius: 5em
+}
+.rounded-circle {
+    border-radius: 50%
+}
+/* #endregion Border */
+
+.display-block {
+    display: block
+}
+.display-inline {
+    display: inline
+}
+
+/* #region Table */
+
+/* Table example 
+<table class="table striped container-md mar-tb-md">
+        <thead class="bg-orange txt-white">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Wick</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+    */
+
+.table {
+    border-collapse: collapse
+}
+.table :is(td, th) {
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--color-darker);
+}
+:is(.table, .table.striped) :not(thead, tfoot) tr:hover {
+    background-color: var(--gray-400)
+}
+
+.table.striped tr:nth-child(even) {
+    background-color: var(--gray-200);
+    color: var(--gray-500)
+}
+.table.bordered :is(td, th) {
+    border: 2px solid var(--border-color);
+    border: 2px solid var(--color-darker)
+}
+.table.borderless :is(td, th) {
+    border: none
+}
+/* #endregion Table */
+
+.img-fluid {
+    max-width: 100%;
+    height: auto
+}
+.obj-fit-cover {
+    object-fit: cover
+}
+
+.line {
+    display: block;
+    width: 100%
+}
+.line * {
+    display: inline-block;
+}
+
+/* #region Dropdown */
+
+/* Dropdown example 
+<div class="dropdown">
+    <span>Pages</span>
+    <div class="dropdown-content">
+        <a href="./html/pages/about.html">About</a>
+        <a href="./html/pages/pricing.html">Pricing</a>
+        <a href="./html/pages/contact.html">Contact</a>
+        <a href="./html/pages/sign-in.html">Sign in</a>
+        <a href="./html/pages/sign-up.html">Sign up</a>
+    </div>
+</div>
+*/
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown::after {
+    font-family: "Material Icons";
+    content: 'keyboard_arrow_down';
+    font-size: 1em;
+    vertical-align: middle;
+    float: right;
+}
+.dropdown:hover::after {
+    content: 'keyboard_arrow_up';
+}
+/* Show the dropdown menu on hover */
+.dropdown:hover>.dropdown-content {
+    display: block;
+    top: 100%;
+    left: 0;
+}
+.dropdown.direction-up::after {
+    content: 'keyboard_arrow_up';
+}
+.dropdown.direction-up:hover::after {
+    content: 'keyboard_arrow_down';
+}
+/* Show the dropdown menu on hover */
+.dropdown.direction-up:hover>.dropdown-content {
+    top: auto;
+    bottom: 100%;
+    left: 0;
+}
+.dropdown.direction-left::after {
+    content: 'keyboard_arrow_left';
+}
+.dropdown.direction-left:hover::after {
+    content: 'keyboard_arrow_right';
+}
+/* Show the dropdown menu on hover */
+.dropdown.direction-left:hover>.dropdown-content {
+    top: 0;
+    left: auto;
+    right: 100%;
+}
+.dropdown.direction-right::after {
+    content: 'keyboard_arrow_right';
+}
+.dropdown.direction-right:hover::after {
+    content: 'keyboard_arrow_left';
+}
+/* Show the dropdown menu on hover */
+.dropdown.direction-right:hover>.dropdown-content {
+    left: 100%;
+    top: 0;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--gray-100);
+    min-width: max-content;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content>* {
+    text-decoration: none !important;
+    color: var(--text) !important;
+    display: block !important;
+    padding: 12px 16px;
+}
+
+/* Change color of dropdown items on hover */
+.dropdown-content>*:hover {
+    background-color: var(--gray-200)
+}
+
+/* #endregion Dropdown List */
+
+/* #region Accordion */
+/* Accordion example
+<div class="accordion bg-gray pad-sm rounded-sm mar-md">
+    <input type="checkbox" id="accordion-toggle" class="disappeared">
+    <label for="accordion-toggle" class="accordion-label font-weight-600">Accordion Title</label>
+    <div class="accordion-content">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed aperiam corrupti reprehenderit. Omnis
+        placeat, minus provident ad earum accusantium fuga excepturi! Qui reiciendis maxime nisi id placeat sint
+        culpa ex suscipit sapiente natus! Asperiores vel minima praesentium consequatur unde sapiente.
+    </div>
+</div>
+*/
+.accordion-label {
+    display: inline-block;
+    width: 100%;
+    user-select: none;
+    cursor: pointer;
+}
+.accordion-toggle:checked~.accordion-label {
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+.accordion-label::after {
+    content: '\002B'
+        /*'\2795'*/
+    ;
+    /* Unicode character for "plus" sign (+) */
+    font-size: 1em;
+    float: right;
+    vertical-align: middle;
+}
+.accordion-toggle:checked~.accordion-label::after {
+    content: '\2212'
+        /*'\2796'*/
+    ;
+    /* Unicode character for "minus" sign (-) */
+}
+.accordion-content {
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+}
+.accordion-toggle:checked~.accordion-content {
+    visibility: visible;
+    height: fit-content;
+    max-height: 30ch;
+    overflow-y: auto;
+    border-top: 2px solid var(--border-color);
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.accordion-toggle:checked~.accordion-content.fluid {
+    max-height: fit-content;
+}
+/* #endregion Accordion */
+
+/* #region Tab */
+/* #region Tab */
+
+/* #region Tooltip */
+/* #region Tooltip */
+
+/* #region Modal */
+/* #region Modal */
+
+.card {
+    width: 300px;
+    height: 275px;
+    cursor: pointer;
+}
+.card>img {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+.card-body {
+    margin: 0 12px;
+    display: flex;
+    gap: .5em;
+}
+.card-body>img {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+}
+.card-body>.card-detail {
+    max-height: 100%;
+}
+
+/* #region Panel, Alert */
+
+/* Alert example 
+<div class="alert bordered-mint txt-mint">
+    <div onclick="this.parentElement.style.display='none'" class="link float-right">&times;</div>
+    <strong class="line">Success!</strong> This alert box could indicate a successful or positive action.
+</div>
+*/
+
+.panel {
+    border-radius: max(0px, min(.5em, calc((90vw - 4px - 100%) * 9999)))
+        /*.5em*/
+    ;
+    padding: 5rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+:is(.panel, .alert) {
+    background-color: var(--color-lighter);
+}
+:is(.panel, .alert).bordered {
+    background-color: var(--color-shadow);
+    border: 2px solid var(--color)
+}
+
+.alert {
+    border-radius: .25em;
+    padding: 1.6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+.alert a {
+    font-weight: bolder
+}
+/* #endregion Panel, Alert */
+
+/* #region Flexbox */
+.flex-container {
+    display: flex;
+    flex-wrap: wrap
+}
+.flex-container.direction-rrow {
+    flex-direction: row-reverse
+}
+.flex-container.direction-col {
+    flex-direction: column
+}
+.flex-container.direction-rcol {
+    flex-direction: column-reverse
+}
+.flex-grow-0\.5 {
+    flex-grow: 0.5
+}
+.flex-grow-1 {
+    flex-grow: 1
+}
+.flex-grow-1\.5 {
+    flex-grow: 1.5
+}
+.flex-grow-2 {
+    flex-grow: 2
+}
+
+.flex-container.gap-xs {
+    gap: .25rem
+}
+.flex-container.gap-sm {
+    gap: .5rem
+}
+.flex-container.gap-md {
+    gap: 1rem
+}
+.flex-container.gap-lg {
+    gap: 2.5rem
+}
+.flex-container.gap-xl {
+    gap: 5rem
+}
+.flex-container.gap-xxl {
+    gap: 10rem
+}
+
+.flex-container.align-main-start {
+    align-items: flex-start
+}
+.flex-container.align-main-center {
+    align-items: center
+}
+.flex-container.align-main-end {
+    align-items: flex-end
+}
+.flex-container.align-main-stretch {
+    align-items: stretch
+}
+
+.flex-container.align-cross-start {
+    justify-content: start
+}
+.flex-container.align-cross-center {
+    justify-content: center
+}
+.flex-container.align-cross-end {
+    justify-content: end
+}
+.flex-container.align-cross-stretch {
+    justify-content: stretch
+}
+.flex-container.align-cross-around {
+    justify-content: space-around
+}
+.flex-container.align-cross-between {
+    justify-content: space-between
+}
+.flex-container.align-cross-evenly {
+    justify-content: space-evenly
+}
+/* #endregion Flexbox */
+
+/* #region Grid */
+.grid {
+    display: grid;
+    place-items: center;
+    --grid-col: 1;
+    grid-template-columns: repeat(var(--grid-col), auto);
+}
+.grid.col-2 {
+    --grid-col: 2
+}
+.grid.col-3 {
+    --grid-col: 3
+}
+.grid.col-4 {
+    --grid-col: 4
+}
+.grid.col-5 {
+    --grid-col: 5
+}
+.grid.col-6 {
+    --grid-col: 6
+}
+.grid.col-7 {
+    --grid-col: 7
+}
+.grid.col-8 {
+    --grid-col: 8
+}
+.grid.col-9 {
+    --grid-col: 9
+}
+.grid.col-10 {
+    --grid-col: 10
+}
+.grid.col-11 {
+    --grid-col: 11
+}
+.grid.col-12 {
+    --grid-col: 12
+}
+.grid .grid-col-span-2 {
+    grid-column: span 2
+}
+.grid.gap-xs {
+    gap: .25rem
+}
+.grid.gap-sm {
+    gap: .5rem
+}
+.grid.gap-md {
+    gap: 1rem
+}
+.grid.gap-lg {
+    gap: 2.5rem
+}
+.grid.gap-xl {
+    gap: 5rem
+}
+.grid.gap-xxl {
+    gap: 10rem
+}
+.grid.align-child-horizontal-start {
+    justify-items: start
+}
+.grid.align-child-horizontal-center {
+    justify-items: center
+}
+.grid.align-child-horizontal-end {
+    justify-items: end
+}
+.grid.align-child-horizontal-stretch {
+    justify-items: stretch
+}
+
+.grid.align-child-vertical-start {
+    align-items: start
+}
+.grid.align-child-vertical-center {
+    align-items: center
+}
+.grid.align-child-vertical-end {
+    align-items: end
+}
+.grid.align-child-vertical-stretch {
+    align-items: stretch
+}
+
+.grid.align-horizontal-start {
+    justify-content: start
+}
+.grid.align-horizontal-center {
+    justify-content: center
+}
+.grid.align-horizontal-end {
+    justify-content: end
+}
+.grid.align-horizontal-stretch {
+    justify-content: stretch
+}
+
+.grid.align-vertical-start {
+    align-content: start
+}
+.grid.align-vertical-center {
+    align-content: center
+}
+.grid.align-vertical-end {
+    align-content: end
+}
+.grid.align-vertical-stretch {
+    align-content: stretch
+}
+
+.grid .align-self-horizontal-start {
+    justify-self: start
+}
+.grid .align-self-horizontal-center {
+    justify-self: center
+}
+.grid .align-self-horizontal-end {
+    justify-self: end
+}
+.grid .align-self-horizontal-stretch {
+    justify-self: stretch
+}
+
+.grid .align-self-vertical-start {
+    align-self: start
+}
+.grid .align-self-vertical-center {
+    align-self: center
+}
+.grid .align-self-vertical-end {
+    align-self: end
+}
+.grid .align-self-vertical-stretch {
+    align-self: stretch
+}
+/* #endregion Grid */
+
+/* #region Input */
+input {
+    background-color: var(--shadow-gray);
+    outline: none
+}
+input::placeholder {
+    user-select: none
+}
+
+/* #region Text Field */
+
+/* #endregion Text Field */
+
+/* #region Checkbox */
+/*Checkbox example 
+<input type="checkbox" class="chkbox bg-yellow" id="a">
+<label for="a" class="pad-sm">Label</label>
+*/
+
+input[type="checkbox"]:is(.chkbox, .chkbox-btn, .chkbox-toggle) {
+    opacity: 0;
+    position: absolute
+}
+input[type="checkbox"]:is(.chkbox, .chkbox-btn, .chkbox-toggle)+label {
+    cursor: pointer;
+    user-select: none;
+}
+input[type="checkbox"].chkbox+label::before {
+    font-family: 'Material Icons';
+    content: 'done'
+        /*'\e876'*/
+    ;
+    position: relative;
+    top: 0;
+    color: transparent;
+    font-size: .5em;
+    padding: .25em;
+    font-weight: 900;
+    margin-right: 16px;
+    border-radius: .625em;
+    background-color: var(--gray-300);
+    transition: var(--transition-time);
+}
+input[type="checkbox"].chkbox:checked+label::before {
+    color: #fff;
+}
+input[type="checkbox"]:disabled.chkbox+label::before {
+    background-color: var(--gray-200);
+}
+
+input[type="checkbox"]:not(:disabled).chkbox+label:hover::before,
+input[type="checkbox"]:not(:disabled).chkbox:focus+label::before {
+    outline: 2px solid var(--color-light)
+}
+input[type="checkbox"]:not(:disabled).chkbox:checked+label::before {
+    background-color: var(--color)
+}
+/* #endregion Checkbox */
+
+/* #region Toggle */
+/* Toggle example
+<input type="checkbox" id="dark mode" class="chkbox-toggle" onclick="modeSwitch(this)">
+<label for="dark mode" class="pad-md">Dark mode</label> 
+*/
+input[type="checkbox"].chkbox-toggle+label {
+    margin-right: 2.5em;
+    position: relative;
+    left: 2.5em;
+}
+input[type="checkbox"].chkbox-toggle+label::before {
+    content: '';
+    position: absolute;
+    left: -2.5em;
+    width: 2.5em;
+    height: 1.5em;
+    /* border: 2px solid gray; */
+    background-color: #cbcbcb;
+    border-radius: 2em;
+    transition: .2s ease-in;
+}
+input[type="checkbox"].chkbox-toggle+label::after {
+    content: '';
+    position: absolute;
+    left: -2.5em;
+    width: 1.5em;
+    height: 1.5em;
+    /* border: 2px solid gray; */
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: scale(0.9);
+    box-shadow: 0 0 .5em #818181;
+    transition: .2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+/* input[type="checkbox"].chkbox-toggle+label:hover::after {
+    transform: scale(1.1);
+} */
+input[type="checkbox"].chkbox-toggle:checked+label::before {
+    background-color: deepskyblue;
+}
+input[type="checkbox"].chkbox-toggle:checked+label::after {
+    left: -1.5em;
+}
+/* #endregion Toggle */
+
+/* #endregion Input */
+
+/* #region Button */
+/* outlined button recommended setting: <button class="btn color-blue bordered-xxs pad-sm rounded-xs">Button</button> */
+/* filled button recommended setting: <button class="btn filled color-blue pad-sm rounded-xs">Button</button> */
+.btn {
+    background-color: transparent;
+    padding: .25em 1em;
+    user-select: none
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: var(--shadow-gray)
+}
+.btn:active {
+    background-color: var(--shadow-gray)
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    color: var(--gray-400) !important;
+    background-color: var(--gray-200) !important;
+    border: none
+}
+.btn:disabled:active {
+    box-shadow: none
+}
+
+.btn:not(:disabled, .txt-white) {
+    color: var(--color-dark)
+}
+.btn:not(:disabled):hover {
+    background-color: var(--color-shadow)
+}
+.btn:not(:disabled):active {
+    color: #fff !important;
+    background-color: var(--color-dark)
+}
+.btn:not(:disabled):focus {
+    outline: 1px solid var(--color-dark)
+}
+
+.btn.btn-filled:not(:disabled) {
+    background-color: var(--color);
+    color: #fff;
+    border: none
+}
+.btn.btn-filled:not(:disabled):hover {
+    background-color: var(--color-light);
+    outline: 1px solid var(--color-dark)
+}
+.btn.btn-filled:not(:disabled):focus {
+    background-color: var(--color-light);
+    outline: .25em solid var(--color-lighter)
+}
+.btn.btn-filled:not(:disabled):active {
+    background-color: var(--color-dark)
+}
+
+/* #endregion Button */
+
+/* #region Page Layout */
+
+/* #region Header + Nav sidebar Example
+<input type="checkbox" class="disappeared" id="nav-toggle">
+
+    <header class="">
+        <div>
+            <label for="nav-toggle" class="nav-toggle-btn"></label>
+            <a href="dangNhap.html" class="logo"><span class="material-icons">explore</span>Explora</a>
+        </div>
+        <input type="text" class="search-bar bordered-xs bordered-cyan rounded-md pad-lr-md" placeholder="Search">
+        <div>
+            <button class="btn txt-cyan borderless pad-sm rounded-xs">Sign In</button>
+            <button class="btn txt-white borderless bg-red pad-sm rounded-xs">Create Account</button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="display-block pad-lr-md"><label for="nav-toggle" class="nav-toggle-btn"></label> <a href=""
+                    class="logo">Logo Here</a>
+            </li>
+            <li><a href=""><span class="material-icons">search</span>search</a></li>
+            <li><a href=""><span class="material-icons">manage_accounts</span>account</a></li>
+            <li><a href=""><span class="material-icons">settings</span>setting</a></li>
+            <li><a href=""><span class="material-icons">help</span>help</a></li>
+            <li><a href=""><span class="material-icons">logout</span>log out</a></li>
+        </ul>
+    </nav> 
+    */
+
+/* #region Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--background);
+    color: var(--text);
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 98;
+}
+header .search-bar {
+    min-width: 25%;
+    max-width: 50%;
+    width: fit-content;
+}
+
+@media screen and (max-width: 576px) {
+    .search-bar {
+        display: none;
+    }
+}
+/* #endregion Header */
+
+/* #region Navigator */
+/* need a label for nav-toggle inside header and nav, place it after nav-toggle (checkbox input) */
+.nav-toggle-btn::before {
+    font-family: 'Material Icons';
+    content: 'reorder';
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    font-size: medium;
+    margin-right: 1em;
+}
+.nav-toggle-btn:hover::before {
+    background-color: #00000050
+}
+#nav-toggle:checked~* .nav-toggle-btn::before {
+    content: 'close';
+}
+#nav-toggle:checked~nav {
+    left: 0;
+}
+#nav-toggle:checked~header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vmax;
+    z-index: 99;
+    background-color: #00000075;
+}
+
+nav {
+    user-select: none;
+    z-index: 100;
+    background-color: var(--background);
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    max-width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    transition: max(0.5s, var(--transition-time)) cubic-bezier(0, 1, 0.5, 1);
+}
+.nav-selected {
+    background-color: var(--color-shadow);
+    font-weight: 700;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+nav>ul {
+    padding: .75rem 0;
+}
+nav .nav-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    text-decoration: none;
+}
+nav .nav-header label {
+    padding-left: 1em;
+}
+nav ul li>* {
+    padding-left: 1.5em;
+    line-height: 2.5;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: var(--text);
+}
+nav .material-icons {
+    margin-right: 1em
+}
+nav ul li>*:not(.accordion):hover {
+    padding-left: 2em;
+    color: var(--color-dark);
+    background-color: var(--gray-200);
+    font-weight: 700;
+    border-right: 5px solid var(--color);
+    text-decoration: none;
+}
+nav ul li>.accordion {
+    padding-left: 0;
+}
+nav ul li .accordion-label {
+    padding-left: 1.5em;
+}
+nav ul li .accordion-content a {
+    padding-left: 4.5em;
+}
+nav ul li .accordion-content a:hover {
+    padding-left: 5em;
+}
+nav ul li .accordion-label:hover {
+    padding-left: 2em;
+    color: var(--color-dark);
+    background-color: var(--gray-200);
+    font-weight: 700;
+    border-right: 5px solid var(--color);
+}
+nav ul li .accordion-toggle:checked~.accordion-content {
+    background-color: #00000020;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* #endregion Navigator */
+
+/* #endregion Page Layout */
+
+/* #region Container */
+.container, .container-sm, .container-md, .container-lg, .container-xl, .container-fluid {
+    padding: 0 15px;
+    margin: auto auto;
+    width: fit-content;
+    max-width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    .container, .container-sm {
+        max-width: 540px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .container, .container-sm {
+        max-width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .container, .container-sm, .container-md {
+        max-width: 960px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1140px;
+    }
+}
+/* #endregion Container */
+
+/* #region Hover Effect */
+
+/* #endregion Hover Effect */
+
+/* #region Animation */
+.fade-in {
+    animation: fade-in calc(var(--transition-time)*2)
+}
+@keyframes fade-in {
+    0% {
+        display: block;
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+.fade-out {
+    animation: fade-out calc(var(--transition-time)*2)
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1
+    }
+    99% {
+        opacity: 0
+    }
+    100% {
+        display: none
+    }
+}
+.slide-up {
+    animation: slide-up calc(var(--transition-time)*2)
+}
+@keyframes slide-up {
+    0% {
+        transform: translateY(10%)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+.slide-down {
+    animation: slide-down calc(var(--transition-time)*2)
+}
+@keyframes slide-down {
+    0% {
+        transform: translateY(-10%)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}
+.slide-left {
+    animation: slide-left calc(var(--transition-time)*2)
+}
+@keyframes slide-left {
+    0% {
+        transform: translateX(10%)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+.slide-right {
+    animation: slide-right calc(var(--transition-time)*2)
+}
+@keyframes slide-right {
+    0% {
+        transform: translateX(-10%)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+/* #endregion Animation */
+
+/* #region Dark Theme */
+/* @media (prefers-color-scheme: dark){
+    :root{
+        --background: var(--gray-600);
+        --text: var(--gray-100);
+    }
+    :is(.panel, .alert) { 
+        background-color: var(--color-darker);
+    }
+    .dropdown-content { background-color: var(--gray-500) }
+    .dropdown-content > *:hover {background-color: var(--color-dark) }
+    .txt-red    { color: var(--lighter-red) }
+    .txt-orange { color: var(--lighter-orange) }
+    .txt-yellow { color: var(--lighter-yellow) }
+    .txt-green  { color: var(--lighter-green) }
+    .txt-mint   { color: var(--lighter-mint) }
+    .txt-cyan   { color: var(--lighter-cyan) }
+    .txt-blue   { color: var(--lighter-blue) }
+    .txt-purple { color: var(--lighter-purple) }
+    .txt-pink   { color: var(--lighter-pink) }
+    
+    .bg-white   { background-color: var(--gray-500) }
+    .bg-red     { background-color: var(--dark-red) }
+    .bg-orange  { background-color: var(--dark-orange) }
+    .bg-yellow  { background-color: var(--dark-yellow) }
+    .bg-green   { background-color: var(--dark-green) }
+    .bg-mint    { background-color: var(--dark-mint) }
+    .bg-cyan    { background-color: var(--dark-cyan) }
+    .bg-blue    { background-color: var(--dark-blue) }
+    .bg-purple  { background-color: var(--dark-purple) }
+    .bg-pink    { background-color: var(--dark-pink) }
+    .bg-gray    { background-color: var(--gray-400) }
+} */
+
+html[data-theme="dark"] {
+    --background: var(--gray-600);
+    --text: var(--gray-100);
+}
+html[data-theme="dark"] :is(.panel, .alert) {
+    background-color: var(--color-darker);
+}
+html[data-theme="dark"] .dropdown-content {
+    background-color: var(--gray-500);
+}
+html[data-theme="dark"] .dropdown-content>*:hover {
+    background-color: var(--color-dark);
+}
+html[data-theme="dark"] nav ul li>*:not(.accordion):hover {
+    color: var(--color-light);
+    background-color: var(--gray-500);
+}
+html[data-theme="dark"] nav ul li .accordion-label:hover {
+    color: var(--color-light);
+    background-color: var(--gray-500);
+}
+html[data-theme="dark"] .txt-red {
+    color: var(--lighter-red);
+}
+html[data-theme="dark"] .txt-orange {
+    color: var(--lighter-orange);
+}
+html[data-theme="dark"] .txt-yellow {
+    color: var(--lighter-yellow);
+}
+html[data-theme="dark"] .txt-green {
+    color: var(--lighter-green);
+}
+html[data-theme="dark"] .txt-mint {
+    color: var(--lighter-mint);
+}
+html[data-theme="dark"] .txt-cyan {
+    color: var(--lighter-cyan);
+}
+html[data-theme="dark"] .txt-blue {
+    color: var(--lighter-blue);
+}
+html[data-theme="dark"] .txt-purple {
+    color: var(--lighter-purple);
+}
+html[data-theme="dark"] .txt-pink {
+    color: var(--lighter-pink);
+}
+html[data-theme="dark"] .bg-white {
+    background-color: var(--gray-500);
+}
+html[data-theme="dark"] .bg-red {
+    background-color: var(--dark-red);
+}
+html[data-theme="dark"] .bg-orange {
+    background-color: var(--dark-orange);
+}
+html[data-theme="dark"] .bg-yellow {
+    background-color: var(--dark-yellow);
+}
+html[data-theme="dark"] .bg-green {
+    background-color: var(--dark-green);
+}
+html[data-theme="dark"] .bg-mint {
+    background-color: var(--dark-mint);
+}
+html[data-theme="dark"] .bg-cyan {
+    background-color: var(--dark-cyan);
+}
+html[data-theme="dark"] .bg-blue {
+    background-color: var(--dark-blue);
+}
+html[data-theme="dark"] .bg-purple {
+    background-color: var(--dark-purple);
+}
+html[data-theme="dark"] .bg-pink {
+    background-color: var(--dark-pink);
+}
+html[data-theme="dark"] .bg-gray {
+    background-color: var(--gray-400);
+}
+
+
+/* #endregion Dark Theme */
+
+/* #endregion Flat */
+
+
+
+/* #region Material */
+:root {
+    --btn-shadow: 0 .5rem 1rem;
+}
+
+/* #region Button (add shadow to basic button) */
+:is(.btn.btn-material, .style-material>.btn):not(:disabled):active {
+    box-shadow: var(--btn-shadow) var(--gray-500)
+}
+:is(.btn.btn-material, .style-material>.btn):not(:disabled):active {
+    box-shadow: var(--btn-shadow) var(--color-light)
+}
+
+html[data-theme="dark"] *:is(.btn.btn-material, .style-material>.btn):not(:disabled):active {
+    box-shadow: var(--btn-shadow) var(--gray-300)
+}
+html[data-theme="dark"] *:is(.btn.btn-material, .style-material>.btn):not(:disabled):active {
+    box-shadow: var(--btn-shadow) var(--color-dark)
+}
+/* #endregion Button (add shadow to basic button */
+
+/* #endregion Material */
+
+/* #region Neumorphism */
+:root {
+    --neumorphism-font: 'Josefin Sans', 'Poppins', sans-serif;
+
+    --neumorphism-light: #dde1e7
+        /*#e6e7ee /*#E9EAF0*/
+    ;
+    --neumorphism-light-shade-1: #EBEFF5;
+    --neumorphism-light-shade-2: #C6CACF;
+    --neumorphism-light-shade-3: #A2A4A8;
+    --neumorphism-light-shade-4: #646669;
+
+    --neumorphism-dark: #24272C;
+    --neumorphism-dark-shade-1: #777777;
+    --neumorphism-dark-shade-2: #3e4555;
+    --neumorphism-dark-shade-3: #2E3238;
+    --neumorphism-dark-shade-4: #2A2D33;
+
+    --neumorphism-gray-100: #f6f9fc;
+    --neumorphism-gray-200: #e9ecef;
+    --neumorphism-gray-300: #dde1ed;
+    --neumorphism-gray-400: #ced4da;
+    --neumorphism-gray-500: #adb5bd;
+    --neumorphism-gray-600: #999999;
+    --neumorphism-gray-700: #777777;
+    --neumorphism-gray-800: #77838f;
+    --neumorphism-gray-900: #3e4555;
+
+    --neumorphism-shade-1: var(--neumorphism-light-shade-1);
+    --neumorphism-shade-2: var(--neumorphism-light-shade-2);
+    --neumorphism-shade-3: var(--neumorphism-light-shade-3);
+    --neumorphism-shade-4: var(--neumorphism-light-shade-4);
+
+    --neumorphism-light-shadow-dark: #757E95;
+    --neumorphism-light-shadow-light: #ffffff;
+    --neumorphism-dark-shadow-dark: #000000;
+    --neumorphism-dark-shadow-light: #7F8493;
+
+    --neumorphism-border: #ffffff20;
+    --neumorphism-background: var(--neumorphism-light);
+    --neumorphism-text: var(--neumorphism-light-shadow-dark);
+    --neumorphism-shadow-dark: var(--neumorphism-light-shadow-dark);
+    --neumorphism-shadow-light: var(--neumorphism-light-shadow-light);
+
+    --neumorphism-shadow-outset-sm: 3px 3px 6px var(--neumorphism-shadow-dark),
+        -3px -3px 6px var(--neumorphism-shadow-light);
+    --neumorphism-shadow-inset-sm: inset 3px 3px 6px var(--neumorphism-shadow-dark),
+        inset -3px -3px 6px var(--neumorphism-shadow-light);
+    --neumorphism-shadow-outset-md: 6px 6px 12px var(--neumorphism-shadow-dark),
+        -6px -6px 12px var(--neumorphism-shadow-light);
+    --neumorphism-shadow-inset-md: inset 6px 6px 12px var(--neumorphism-shadow-dark),
+        inset -6px -6px 12px var(--neumorphism-shadow-light);
+    --neumorphism-shadow-outset-lg: 12px 12px 24px var(--neumorphism-shadow-dark),
+        -12px -12px 24px var(--neumorphism-shadow-light);
+    --neumorphism-shadow-inset-lg: inset 12px 12px 24px var(--neumorphism-shadow-dark),
+        inset -12px -12px 24px var(--neumorphism-shadow-light);
+
+    --neumorphism-primary: #174f84;
+    --neumorphism-secondary: #10ab7c;
+    --neumorphism-tertiary: #FF7F66;
+
+    --Violet-Color-Wheel: #7a04e8;
+    --Ruddy-Pink: #ec9c94;
+    --DeepGreen-CyanTurquoise: #107a5b;
+    --Deep-Lilac: #985ab3;
+    --Light-Medium-Orchid: #d4a7c9;
+    --Purple-Navy: #4c5c80;
+}
+
+.neumorphism.font, .neumorphism .font-inherited, .font-neumorphism {
+    font-family: var(--neumorphism-font);
+}
+.neumorphism.txt, .neumorphism .txt-inherited, .txt-neumorphism {
+    color: var(--neumorphism-text);
+}
+.neumorphism.txt-font, .neumorphism .txt-font-inherited, .txt-font-neumorphism {
+    color: var(--neumorphism-text);
+    font-family: var(--neumorphism-font);
+}
+
+.neumorphism.bg, .neumorphism .bg, .bg-neumorphism {
+    background-color: var(--neumorphism-background);
+}
+
+.bordered-neumorphism {
+    border-color: var(--neumorphism-border)
+}
+
+/* #region Inset/Outset */
+.neumorphism.inset-sm, .neumorphism .inset-sm {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-inset-sm);
+}
+.neumorphism.inset-md, .neumorphism .inset-md {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-inset-md);
+}
+.neumorphism.inset-lg, .neumorphism .inset-lg {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-inset-lg);
+}
+
+.neumorphism.outset-sm, .neumorphism .outset-sm {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-outset-sm);
+}
+.neumorphism.outset-md, .neumorphism .outset-md {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-outset-md);
+}
+.neumorphism.outset-lg, .neumorphism .outset-lg {
+    background-color: var(--neumorphism-background);
+    box-shadow: var(--neumorphism-shadow-outset-lg);
+}
+/* #endregion Inset/Outset */
+
+.neumorphism.btn.gradient {
+    background: linear-gradient(145deg, var(--neumorphism-shadow-light),
+            var(--neumorphism-shadow-dark));
+}
+
+.neumorphism.btn, .neumorphism .btn {
+    box-shadow: var(--neumorphism-shadow-outset-sm);
+    color: var(--neumorphism-text);
+    background-color: var(--neumorphism-background);
+    font-weight: bold;
+    text-align: center;
+}
+
+:is(.neumorphism.btn, .neumorphism .btn):hover {
+    cursor: pointer;
+    background-color: var(--neumorphism-shade-2);
+}
+:is(.neumorphism.btn, .neumorphism .btn):active {
+    cursor: pointer;
+    box-shadow: var(--neumorphism-shadow-inset-sm);
+}
+
+.neumorphism input[type="checkbox"].chkbox-bordered {
+    display: none;
+}
+.neumorphism input[type="checkbox"].chkbox-bordered+label,
+input[type="checkbox"].chkbox-bordered+label.neumorphism,
+input[type="checkbox"].chkbox-bordered.neumorphism+label {
+    cursor: pointer;
+    user-select: none;
+    box-shadow: var(--neumorphism-shadow-outset-sm);
+}
+.neumorphism input[type="checkbox"].chkbox-bordered:checked+label,
+input[type="checkbox"].chkbox-bordered:checked+label.neumorphism,
+input[type="checkbox"].chkbox-bordered.neumorphism:checked+label {
+    box-shadow: var(--neumorphism-shadow-inset-sm);
+}
+.neumorphism input[type="checkbox"].chkbox-bordered+label::before,
+input[type="checkbox"].chkbox-bordered+label.neumorphism::before,
+input[type="checkbox"].chkbox-bordered.neumorphism+label::before {
+    font-family: 'Material Icons';
+    content: '\e876';
+    visibility: hidden;
+    font-size: inherit;
+    border-radius: 50%;
+    margin-right: 6px;
+    background-color: var(--neumorphism-text);
+    color: var(--neumorphism-background);
+    transition: .1s;
+}
+.neumorphism input[type="checkbox"].chkbox-bordered:checked+label::before,
+input[type="checkbox"].chkbox-bordered:checked+label.neumorphism::before,
+input[type="checkbox"].chkbox-bordered:checked.neumorphism+label::before {
+    visibility: visible;
+    background-color: var(--neumorphism-background);
+    color: var(--neumorphism-text);
+}
+
+input[type='range'].neumorphism {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 400px;
+    height: 60px;
+    padding: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: -2px -2px 8px white, 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+input[type='range'].neumorphism:focus {
+    outline: none;
+}
+input[type='range'].neumorphism::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+input[type='range'].neumorphism::-moz-range-thumb {
+    border: none;
+}
+input[type='range'].neumorphism::-webkit-slider-runnable-track {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: inset -2px -2px 8px white, inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+input[type='range'].neumorphism::-webkit-slider-thumb {
+    position: relative;
+    top: -50%;
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+    box-shadow: -1px -1px 2px white, 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+input[type='range'].neumorphism::-moz-range-track {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    border-radius: 10px;
+    box-shadow: inset -2px -2px 8px white, inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+input[type='range'].neumorphism::-moz-range-thumb {
+    position: relative;
+    top: -50%;
+    width: 40px;
+    height: 40px;
+    background-color: #e0e0e0;
+    background-image: linear-gradient(-45deg, rgba(255, 255, 255, 0.8), transparent);
+    border-radius: 50%;
+    box-shadow: -1px -1px 2px white, 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+
+html.neumorphism[data-theme="dark"] {
+    --neumorphism-background: var(--neumorphism-dark);
+    --neumorphism-text: var(--neumorphism-dark-shadow-light);
+    --neumorphism-shadow-dark: var(--neumorphism-dark-shadow-dark);
+    --neumorphism-shadow-light: var(--neumorphism-dark-shadow-light);
+    --neumorphism-shade-1: var(--neumorphism-dark-shade-1);
+    --neumorphism-shade-2: var(--neumorphism-dark-shade-2);
+    --neumorphism-shade-3: var(--neumorphism-dark-shade-3);
+    --neumorphism-shade-4: var(--neumorphism-dark-shade-4);
+}
+
+/* @media (prefers-color-scheme: dark){
+    :root{
+        --neumorphism-background: var(--neumorphism-dark);
+        --neumorphism-text: var(--neumorphism-light);
+        --neumorphism-shadow-dark: var(--neumorphism-dark-shadow-dark);
+        --neumorphism-shadow-light: var(--neumorphism-dark-shadow-light);
+    }
+} */
+
+/* #endregion Neumorphism */
