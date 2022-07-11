@@ -14,7 +14,7 @@
 
 <body>
 
-    <div id="container">
+    <div id="root" class="container">
 
     </div>
 
@@ -38,6 +38,7 @@
 
         const bquote1 = (
             <React.Fragment>
+                <a href="https://blog.hubspot.com/sales/famous-quotes">Quote source</a>
                 <Quote
                     header=""
                     quote="The greatest glory in living lies not in never falling, but in rising every time we fall."
@@ -56,10 +57,8 @@
             </React.Fragment>
         );
 
-        console.log(bquote1);
-
         ReactDOM.render(bquote1,
-            document.getElementById("container"));
+            document.getElementById("root"));
     </script>
 </body>
 
