@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>React Component</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
@@ -27,7 +27,7 @@
 
             render() {
                 return (
-                    <div className="blockquote">
+                    <div className="blockquote" style={{background: 'var(--shadow-'+this.props.background+')'}}>
                         <h5 className="txt-cyan">{this.props.header}</h5>
                         <p>{this.props.quote}</p>
                         <footer className="blockquote-footer">{this.props.footer}</footer>
@@ -40,22 +40,33 @@
             <React.Fragment>
                 <a href="https://blog.hubspot.com/sales/famous-quotes">Quote source</a>
                 <Quote
+                    background="yellow"
                     header=""
                     quote="The greatest glory in living lies not in never falling, but in rising every time we fall."
                     footer="Nelson Mandela"
                 />
                 <Quote
+                    background="cyan"
                     header=""
                     quote="The way to get started is to quit talking and begin doing."
                     footer="Walt Disney"
                 />
                 <Quote
+                    background="green"
                     header=""
                     quote="Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking."
                     footer="Steve Job"
                 />
+                <Quote
+                    background="purple"
+                    header=""
+                    quote="If life were predictable it would cease to be life, and be without flavor."
+                    footer="Eleanor Roosevelt"
+                />
             </React.Fragment>
         );
+
+        console.log(bquote1);
 
         ReactDOM.render(bquote1,
             document.getElementById("root"));
