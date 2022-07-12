@@ -134,16 +134,15 @@
 
             render() {
                 return (
-                    <div className="card bordered-xs" 
-                        onClick = {() => console.warn('https://m.youtube.com/watch?v=' + this.props.video)}>
+                    <div className="card bordered-xs"
+                        onClick={() => console.warn('https://m.youtube.com/watch?v=' + this.props.video)}>
                         <img src={this.props.image}
                             alt="" className="img-fluid" />
                         <div className="card-body">
                             <div className="card-detail">
                                 <h6 className="txt-wrapped max-line-2 mar-tb-xs">{this.props.title}</h6>
                                 <a>{this.props.viewCount + " lượt xem"}</a>
-                                //<p className="font-xxs">{this.props.likeCount} &#128077; &#x1F44D;</p>
-                                <Button content={this.props.likeCount} href={'https://m.youtube.com/watch?v=' + this.props.video}/>
+                                <Button content={this.props.likeCount} href={'https://m.youtube.com/watch?v=' + this.props.video} />
                             </div>
                         </div>
                     </div>
@@ -165,24 +164,24 @@
                 }
             </div>
         );
-        
-        function Button({content, href, onclick}) {
-          let Component = 'button';
-          const props = {};
-          
-          if(href){
-            Component = 'a';
-            props.href = href;
-          }
-          if(onclick){
-            props.onClick = onclick;
-          }
-          
-          return (
-            <Component {...props} className="btn btn-filled">
-              {content}
-            </Component>
-          );
+
+        function Button({ content, href, onclick }) {
+            let Component = 'button';
+            const props = {};
+
+            if (href) {
+                Component = 'a';
+                props.href = href;
+            }
+            if (onclick) {
+                props.onClick = onclick;
+            }
+
+            return (
+                <Component {...props} className="btn btn-filled rounded-sm float-right">
+                    {content}
+                </Component>
+            );
         }
 
         ReactDOM.render(cardDOM,
