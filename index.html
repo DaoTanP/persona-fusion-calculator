@@ -20,53 +20,6 @@
 
     <script type="text/babel">
 
-        class Quote extends React.Component {
-            constructor(props) {
-                super(props);
-            }
-
-            render() {
-                return (
-                    <div className="blockquote" style={{ background: 'var(--shadow-' + this.props.background + ')' }}>
-                        <img style={{ maxWidth: 400 + 'px' }} src={this.props.image} alt="{this.props.header}" />
-                        <h5 className="txt-cyan">{this.props.header}</h5>
-                        <p>{this.props.quote}</p>
-                        <footer className="blockquote-footer">{this.props.footer}</footer>
-                    </div>
-                );
-            }
-        }
-
-        const bquote1 = (
-            <React.Fragment>
-                <a href="https://blog.hubspot.com/sales/famous-quotes">Quote source</a>
-                <Quote
-                    background="yellow"
-                    header=""
-                    quote="The greatest glory in living lies not in never falling, but in rising every time we fall."
-                    footer="Nelson Mandela"
-                />
-                <Quote
-                    background="cyan"
-                    header=""
-                    quote="The way to get started is to quit talking and begin doing."
-                    footer="Walt Disney"
-                />
-                <Quote
-                    background="green"
-                    header=""
-                    quote="Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma - which is living with the results of other people's thinking."
-                    footer="Steve Job"
-                />
-                <Quote
-                    background="purple"
-                    header=""
-                    quote="If life were predictable it would cease to be life, and be without flavor."
-                    footer="Eleanor Roosevelt"
-                />
-            </React.Fragment>
-        );
-
         const cards = [
             {
                 "id": 696,
@@ -181,14 +134,16 @@
 
             render() {
                 return (
-                    <div className="card bordered-xs">
+                    <div className="card bordered-xs" 
+                        onClick = {() => console.warn('https://m.youtube.com/watch?v=' + this.props.video)}>
                         <img src={this.props.image}
                             alt="" className="img-fluid" />
                         <div className="card-body">
                             <div className="card-detail">
                                 <h6 className="txt-wrapped max-line-2 mar-tb-xs">{this.props.title}</h6>
                                 <a>{this.props.viewCount + " lượt xem"}</a>
-                                <p className="font-xxs">{this.props.likeCount} &#128077; &#x1F44D;</p>
+                                //<p className="font-xxs">{this.props.likeCount} &#128077; &#x1F44D;</p>
+                                <Button content={this.props.likeCount} href={'https://m.youtube.com/watch?v=' + this.props.video}/>
                             </div>
                         </div>
                     </div>
@@ -196,18 +151,39 @@
             }
         }
         const cardDOM = (
-            <div class="flex-container width-90 mar-auto gap-lg align-cross-center">
+            <div className="flex-container width-90 mar-auto gap-lg align-cross-center">
                 {
                     cards.map(card =>
                         <Card
+                            key={card.id}
                             image={card.image}
                             title={card.title}
                             viewCount={card.yt_view_count}
                             likeCount={card.yt_like_count}
+                            video={card.video}
                         />)
                 }
             </div>
         );
+        
+        function Button({content, href, onclick}) {
+          let Component = 'button';
+          const props = {};
+          
+          if(href){
+            Component = 'a';
+            props.href = href;
+          }
+          if(onclick){
+            props.onClick = onclick;
+          }
+          
+          return (
+            <Component {...props} className="btn btn-filled">
+              {content}
+            </Component>
+          );
+        }
 
         ReactDOM.render(cardDOM,
             document.getElementById("root"));
