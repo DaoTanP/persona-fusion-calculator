@@ -1,42 +1,31 @@
-import './style.css';
-import data from './data-video';
-import Card from './components/Card';
-import Navigator from './components/Navigator';
-
-const gridStyle = {
-  height: '100%',
-  minHeight: '100%',
-  position: 'relative',
-  width: '100%',
-  display: 'grid',
-  gridTemplateColumns: 'auto 1fr',
-  gridTemplateRows: 'auto 1fr auto',
-  gridTemplateAreas: `'top-bar top-bar'
-                      'nav-bar main-view'
-                      'now-playing-bar now-playing-bar'`
-}
-const navBar = {
-  gridArea: 'nav-bar'
-}
+import './css/style.css';
+import SpotifyCard from './components/SpotifyCard';
+import data from './data';
 
 function App() {
   return (
-    <div style={gridStyle}>
-      <Navigator style={navBar} />
+    <div style={{
+      maxWidth: '640px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '8px 0',
+      maxHeight: '90vh',
+      overflowY: 'auto',
+    }}>
+      <SpotifyCard
+        image='https://zenius-i-vanisher.com/simfiles/DanceDanceRevolution%20HOTTEST%20PARTY%203%20(Wii)%20(North%20America)/Never%20Gonna%20Give%20You%20Up/Never%20Gonna%20Give%20You%20Up-jacket.png'
+        title='Never Gonna Give You Up'
+        description='Rick Astley'
+      />
 
-      <div className="flex-container width-90 mar-auto gap-lg align-cross-center hidden">
-        {
-          data.map(card =>
-            <Card
-              key={card.id}
-              image={card.image}
-              title={card.title}
-              viewCount={card.yt_view_count}
-              likeCount={card.yt_like_count}
-              video={card.video}
-            />)
-        }
-      </div>
+      {data.map(d =>
+        <SpotifyCard
+          image={d.image}
+          title={d.title}
+          description={d.video}
+          background={d.background}
+        />
+      )}
     </div>
   );
 }

@@ -10,7 +10,8 @@ const data = [
         "yt_comment_count": 184,
         "yt_like_count": 5216,
         "image_url": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#ffa502"
     },
     {
         "id": 760,
@@ -23,7 +24,8 @@ const data = [
         "yt_comment_count": 226,
         "yt_like_count": 5195,
         "image_url": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#2ed573"
     },
     {
         "id": 456,
@@ -36,7 +38,8 @@ const data = [
         "yt_comment_count": 276,
         "yt_like_count": 4396,
         "image_url": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#ff4757"
     },
     {
         "id": 533,
@@ -49,7 +52,8 @@ const data = [
         "yt_comment_count": 222,
         "yt_like_count": 2800,
         "image_url": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#747d8c"
     },
     {
         "id": 44,
@@ -62,7 +66,8 @@ const data = [
         "yt_comment_count": 108,
         "yt_like_count": 2708,
         "image_url": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#1e90ff"
     },
     {
         "id": 690,
@@ -75,7 +80,8 @@ const data = [
         "yt_comment_count": 340,
         "yt_like_count": 2370,
         "image_url": "https://i.ytimg.com/vi/x0fSBAgBrOQ/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#3742fa"
     },
     {
         "id": 692,
@@ -88,7 +94,8 @@ const data = [
         "yt_comment_count": 99,
         "yt_like_count": 2279,
         "image_url": "https://i.ytimg.com/vi/0SJE9dYdpps/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#ff6348"
     },
     {
         "id": 691,
@@ -101,7 +108,8 @@ const data = [
         "yt_comment_count": 401,
         "yt_like_count": 1999,
         "image_url": "https://i.ytimg.com/vi/ZGmpvhqYSDU/maxresdefault.jpg",
-        "video_url": null
+        "video_url": null,
+        "background": "#2f3542"
     }
 ];
 
