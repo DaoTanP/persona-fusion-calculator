@@ -1,18 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Bitter&family=Comfortaa&family=Comic+Neue:wght@400;700&family=Coming+Soon&family=Cormorant+Garamond&family=Dosis:wght@800&family=EB+Garamond&family=Josefin+Sans&family=Lora&family=Merriweather&family=Montserrat:wght@400;900&family=Noto+Serif&family=Nunito+Sans:wght@400;700;900&family=PT+Serif&family=Patrick+Hand&family=Playfair+Display&family=Poppins&family=Rubik&family=Satisfy&family=VT323&display=swap');
+
+:root {
+    --background: #6CB1FF;
+    --background-accent: #2495FF;
+    --background-accent-2: #00578a;
+    --light: #2495FF;
+    --dark: #003C60;
+    --text-l: #fff8e7;
+    --text-d: #003C60;
+    --secondary: #FFC44A;
+}
+
 * {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Nunito Sans', 'Rubik', sans-serif;
 }
 *::before, *::after {
     box-sizing: inherit;
 }
-body {
+#root {
     height: 100vh;
     margin: 0;
-    padding: 0;
+    padding: 2rem 0;
     display: grid;
+    grid-template-rows: 3rem 1fr;
     place-items: center;
+    background-color: var(--background);
+    background-image: linear-gradient(var(--background-accent-2) 50%,
+            var(--background-accent) 50%), linear-gradient(var(--background-accent) 50%,
+            var(--background-accent-2) 50%);
+    background-repeat: no-repeat;
+    background-size: 100% 2rem;
+    background-position: top left, bottom left;
 }
 
 .card {
@@ -60,6 +80,77 @@ body {
 .card-subtext>*:not(:last-child) {
     margin-right: auto;
 }
+
+.card-small {
+    width: 160px;
+    padding: .25rem;
+    margin: auto;
+    height: fit-content;
+    background-color: var(--light);
+    color: var(--text-d);
+    /* border-radius: .5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .25rem;
+    transition: 0.15s ease-out;
+    position: relative;
+}
+.card-small:hover {
+    transform: scale(1.025);
+    box-shadow: 0 .25rem .5rem var(--light), 0 .5rem 1rem var(--dark);
+}
+/* .card-small::before {
+    content: '';
+    height: 100px;
+    position: absolute;
+    transition: 0.15 ease-out;
+}
+.card-small:hover::before {
+    position: relative;
+}
+.card-small:hover .card-small-media {
+    transform: scale(1.1);
+    filter: saturate(100%);
+    background-color: transparent;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 33%;
+} */
+.card-small:hover .card-small-media {
+    filter: saturate(100%);
+}
+.card-small-media {
+    align-self: center;
+    background-color: var(--background-accent-2);
+    width: 150px;
+    height: 100px;
+    border-radius: .25rem;
+    object-fit: cover;
+    background-size: cover;
+    object-position: 50% 25%;
+    filter: saturate(50%);
+    transition: filter 0.15s ease-out;
+    transition: background-color 0.15s ease-out;
+}
+.card-small-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.card-small-description>* {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 0.5;
+}
+.card-small-subtext {
+    display: flex;
+    gap: 0 16px;
+    align-items: center;
+    height: min-content;
+    width: 100%
+}
 .txt-wrapped {
     -moz-box-orient: vertical;
     -webkit-box-orient: vertical;
@@ -67,7 +158,7 @@ body {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-l-overflow: ellipsis;
     white-space: normal;
 }
 .txt-wrapped.max-line-2 {
@@ -83,12 +174,11 @@ body {
     -webkit-line-clamp: 5
 }
 
-body {
+.music-player-bg {
     background-color: #fff8e7;
-    color: #fff8e7;
     position: relative;
 }
-body:before {
+.music-player-bg:before {
     background: no-repeat 23vw 30vh url("https://assets.codepen.io/518555/sparkles1.svg"), no-repeat right 25vw bottom 30vh url("https://assets.codepen.io/518555/sparkles4.svg"), no-repeat 40vw 30vh / 35vw url("https://assets.codepen.io/518555/blobStripe.svg");
     content: '';
     height: 100%;
@@ -98,7 +188,7 @@ body:before {
     width: 100%;
     z-index: -1;
 }
-body:after {
+.music-player-bg:after {
     background: no-repeat 25vw 40vh / 30vw url("https://assets.codepen.io/518555/blobSolid.svg");
     content: '';
     height: 100%;
@@ -119,7 +209,7 @@ body:after {
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
+    text-l-align: center;
     cursor: pointer;
 }
 .play-button:hover>.button-icon {
@@ -160,4 +250,43 @@ body:after {
     box-shadow: none;
     height: 8px;
     width: 44%;
+}
+
+button {
+    /* display: block; */
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: var(--light);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    font-weight: 600;
+    color: var(--text-l);
+    background-size: 100% 100%;
+    box-shadow: 0 0 0 7px var(--light) inset;
+    margin: auto;
+}
+
+button:hover {
+    background-image: linear-gradient(145deg,
+            transparent 10%,
+            var(--dark) 10% 20%,
+            transparent 20% 30%,
+            var(--dark) 30% 40%,
+            transparent 40% 50%,
+            var(--dark) 50% 60%,
+            transparent 60% 70%,
+            var(--dark) 70% 80%,
+            transparent 80% 90%,
+            var(--dark) 90% 100%);
+    animation: background 3s linear infinite;
+}
+
+@keyframes background {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 400px 0;
+    }
 }
