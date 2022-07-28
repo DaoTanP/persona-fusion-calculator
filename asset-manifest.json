@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/persona-fusion-calculator/static/css/main.c2672ab0.css",
+    "main.js": "/persona-fusion-calculator/static/js/main.a87052c2.js",
+    "static/js/787.19cf879b.chunk.js": "/persona-fusion-calculator/static/js/787.19cf879b.chunk.js",
+    "index.html": "/persona-fusion-calculator/index.html",
+    "main.c2672ab0.css.map": "/persona-fusion-calculator/static/css/main.c2672ab0.css.map",
+    "main.a87052c2.js.map": "/persona-fusion-calculator/static/js/main.a87052c2.js.map",
+    "787.19cf879b.chunk.js.map": "/persona-fusion-calculator/static/js/787.19cf879b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c2672ab0.css",
+    "static/js/main.a87052c2.js"
+  ]
+}
