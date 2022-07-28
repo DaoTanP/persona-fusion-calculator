@@ -1,43 +1,47 @@
 import React from "react";
 
-// class PersonaCard extends React.Component {
-//     handleClick = () => {
-//         this.props.onClick(...this.props.onClickParam);
-//     }
-//     render() {
-//         return (
-//             <div className="card-small" onClick={this.handleClick}>
-//                 <img src={this.props.image} alt={this.props.name} className="card-small-media" />
-//                 <div>
-//                     <h1 className="card-small-title">{this.props.name}</h1>
-//                     <div className="card-small-description">
-//                         <p>{'Level ' + this.props.level}</p>
-//                         <p>{this.props.arcana}</p>
-//                     </div>
-//                     <div className="card-small-subtext">
-//                     </div>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
 export default function PersonaCard(props) {
     const handleClick = () => {
         props.onClick(...props.onClickParam);
     }
-    return (
-        <div className="card-small" onClick={handleClick}>
-            <img src={props.image} alt={props.name} className="card-small-media" />
-            <div>
-                <h1 className="card-small-title">{props.name}</h1>
-                <div className="card-small-description">
-                    <p>{'Level ' + props.level}</p>
-                    <p>{props.arcana}</p>
-                </div>
-                <div className="card-small-subtext">
+
+    if (props.isVertical) {
+        return (
+            <div className="card-v" onClick={handleClick}>
+                <img
+                    className="card-v-media"
+                    src={props.image || props.persona.image}
+                    alt={props.name || props.persona.name}
+                />
+                <div>
+                    <h1 className="card-v-title">
+                        {props.name || props.persona.name}
+                    </h1>
+                    <div className="card-v-description">
+                        <p>{'Level ' + props.level || props.persona.level}</p>
+                        <p>{props.arcana || props.persona.arcana}</p>
+                    </div>
                 </div>
             </div>
+        );
+    }
+
+    return (
+        <div className="card-h" onClick={handleClick}>
+            <img
+                className="card-h-media"
+                src={props.image || props.persona.image}
+                alt={props.name || props.persona.name}
+            />
+            <h1 className="card-h-title">
+                {props.name || props.persona.name}
+            </h1>
+            <p className="card-h-description">
+                {'Level ' + (props.level || props.persona.level)}
+            </p>
+            <p className="card-h-subtext">
+                {props.arcana || props.persona.arcana}
+            </p>
         </div>
     );
 }
