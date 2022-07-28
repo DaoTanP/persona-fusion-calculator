@@ -58,6 +58,7 @@
     /* border-radius: .5rem; */
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: .25rem;
     transition: 0.15s ease-out;
     position: relative;
