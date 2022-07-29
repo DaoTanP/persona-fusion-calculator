@@ -50,24 +50,26 @@
 
 .card-h {
     width: 100%;
-    padding: .25rem;
+    padding: .25rem 2rem;
     margin: auto;
     height: fit-content;
     background-color: var(--light);
     color: var(--text-d);
-    /* border-radius: .5rem; */
+    border-radius: .5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: .25rem;
     transition: 0.15s ease-out;
     position: relative;
+    line-height: 0.5;
+    font-weight: 500;
 }
 .card-h>*:not(.card-h-media) {
     width: 100%;
 }
 .card-h:hover {
-    transform: scale(1.025);
+    transform: scale(1.0125);
     box-shadow: 0 .25rem .5rem var(--light), 0 .5rem 1rem var(--dark);
 }
 .card-h:hover .card-h-media {
@@ -77,7 +79,7 @@
     align-self: center;
     background-color: var(--background-accent-2);
     width: 150px;
-    height: 100px;
+    height: 75px;
     border-radius: .25rem;
     object-fit: cover;
     background-size: cover;
@@ -94,7 +96,6 @@
 .card-h-description>* {
     font-size: 0.75rem;
     font-weight: 600;
-    line-height: 0.5;
 }
 .card-h-subtext {
     display: flex;
@@ -177,6 +178,34 @@
 }
 .txt-wrapped.max-line-5 {
     -webkit-line-clamp: 5
+}
+
+.table {
+    border-collapse: collapse;
+    position: relative;
+}
+.table thead {
+    background-color: cadetblue;
+    position: sticky;
+    top: 0;
+}
+.table :is(td, th) {
+    text-align: left;
+    padding: 0.5rem 2rem;
+}
+:is(.table, .table.striped) :not(thead, tfoot) tr:hover {
+    background-color: var(--background-accent-2)
+}
+
+.table.striped tr:nth-child(even) {
+    background-color: var(--background-accent);
+    /* color: var(--text-l) */
+}
+.table.bordered :is(td, th) {
+    border: 2px solid var(--dark);
+}
+.table.borderless :is(td, th) {
+    border: none
 }
 
 .music-player-bg {

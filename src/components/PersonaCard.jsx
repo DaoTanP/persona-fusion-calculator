@@ -29,8 +29,8 @@ export default function PersonaCard(props) {
     return (
         <div className="card-h" onClick={handleClick}>
             <img
-                className="card-h-media"
-                src={props.image || props.persona.image}
+                className="card-h-media disappeared"
+                src={props.image || props.persona.image || ''}
                 alt={props.name || props.persona.name}
             />
             <h1 className="card-h-title">

@@ -40,30 +40,79 @@ class PersonaCardContainer extends React.Component {
     }
 
     render() {
-        if (!this.state.persona)
+        if (!this.state.persona) {
+            if (!this.props.isCardVertical) {
+                return (
+                    <div className="container-fluid pad2y flex-container">
+                        <div class="row">
+                            <h4 className="col-sm-8 text-primary">List of persona</h4>
+                            <div class="col-sm input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" />
+                                <button class="btn btn-outline-primary" type="button" id="button-addon2"><span class="material-symbols-outlined" style={{ transform: 'translateY(20%)' }}>
+                                    search
+                                </span></button>
+                            </div>
+                        </div>
+                        <table className="table table-bordered table-responsive table-sm table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Level</th>
+                                    <th>Arcana</th>
+                                </tr>
+                            </thead>
+                            <tbody className="table-group-divider">
+                                {
+                                    persona.map(p =>
+                                        <tr key={p.name}>
+                                            <td>{p.name}</td>
+                                            <td>{p.level}</td>
+                                            <td>{p.arcana}</td>
+                                        </tr>
+                                    )}
+                            </tbody>
+                        </table>
+                    </div >
+                )
+            }
             return (
-                <div className="flex-container" style={{ padding: '2rem' }}>{
-                    persona.map(p =>
-                        <PersonaCard
-                            key={p.name}
-                            image={'./image/' + p.arcana + "/" + p.name + '.png'}
-                            persona={p}
-                            onClick={this.handleChoosePersona}
-                            onClickParam={[p]}
-                        />
-                    )}
+                <div className="flex-container" style={{ padding: '2rem' }}>
+                    <PersonaCard
+                        key={0}
+                        image=''
+                        name='Name'
+                        level=''
+                        arcana='Arcana'
+                        isVertical={this.props.isCardVertical}
+                    />
+                    {
+                        persona.map(p =>
+                            <PersonaCard
+                                key={p.name}
+                                image={'./image/' + p.arcana + "/" + p.name + '.png'}
+                                persona={p}
+                                onClick={this.handleChoosePersona}
+                                onClickParam={[p]}
+                                isVertical={this.props.isCardVertical}
+                            />
+                        )}
                 </div>
             );
+        }
         else
             return (
-                <div className="flex-container">
-                    <div className="flex-container" style={{ flexDirection: 'column', flexWrap: 'nowrap', width: '100%' }}>
+                <div className="flex-container" style={{ padding: '2rem' }}>
+                    <div className="flex-container" style={{ flexDirection: 'column', width: '100%' }}>
                         <h1>{'There are ' + this.state.recipes.length + ' recipes for ' + this.state.persona.name}</h1>
-                        <PersonaCard
-                            key={this.state.persona.name}
-                            image={'./image/' + this.state.persona.arcana + "/" + this.state.persona.name + '.png'}
-                            persona={this.state.persona}
-                        />
+                        {
+                            this.props.isCardVertical &&
+                            <PersonaCard
+                                key={this.state.persona.name}
+                                image={'./image/' + this.state.persona.arcana + "/" + this.state.persona.name + '.png'}
+                                persona={this.state.persona}
+                                isVertical={this.props.isCardVertical}
+                            />
+                        }
                         <button onClick={this.handleResetPersona}>Back to Persona list</button>
                     </div>
                     <div style={{ ...flexContainer }}>
@@ -79,6 +128,7 @@ class PersonaCardContainer extends React.Component {
                                                     persona={persona}
                                                     onClick={this.handleChoosePersona}
                                                     onClickParam={[persona]}
+                                                    isVertical={this.props.isCardVertical}
                                                 />
                                             )
                                         }
