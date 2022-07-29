@@ -47,7 +47,7 @@ class PersonaCardContainer extends React.Component {
                         <div class="row">
                             <h4 className="col-sm-8 text-primary">List of persona</h4>
                             <div class="col-sm input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="button-addon2" />
+                                <input type="text" class="form-control" placeholder="Persona Name" aria-label="PersonaName" aria-describedby="button-addon2" />
                                 <button class="btn btn-outline-primary" type="button" id="button-addon2"><span class="material-symbols-outlined" style={{ transform: 'translateY(20%)' }}>
                                     search
                                 </span></button>
