@@ -7,6 +7,9 @@ export class FusionCalculator {
         this.arcana2Combos = arcana2Combos
         this.arcana3Combos = arcana3Combos
         this.specialCombos = specialCombos
+        this.recipeListNormal = {}
+        this.recipeListTriangle = {}
+        // this.getAllRecipes().then((recipeList) => this.recipeList = recipeList)
     }
 
     //#region Data Utils
@@ -274,18 +277,114 @@ export class FusionCalculator {
     }
 
     /**
+     * Get the list of all recipes
+     * @returns {Array} List of all recipes
+     */
+    async getAllRecipes() {
+        let allRecipe = []
+        let arcanaList = Object.keys(this.arcanaRank).sort((a, b) => a - b)
+
+        for (let i = 0; i < arcanaList.length; i++) {
+            const arcana = arcanaList[i]
+            let recipes = this.getNormalRecipes(arcana)
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], allRecipe, true)
+            }
+            recipes = this.getTriangleRecipes(arcana)
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], allRecipe, true)
+            }
+        }
+
+        for (let i = 0; i < this.specialCombos.length; i++) {
+            allRecipe.push(this.getSpecialRecipe(this.getPersona(this.specialCombos[i].result))[0])
+        }
+
+        return allRecipe.sort((a, b) => a.cost - b.cost)
+    }
+
+    getAllNormalRecipes() {
+        let normalRecipesByArcana = {}
+        let arcanaList = Object.keys(this.arcanaRank).sort((a, b) => a - b)
+
+        for (let i = 0; i < arcanaList.length; i++) {
+            const arcana = arcanaList[i]
+            let recipes = this.getNormalRecipes(arcana)
+            let allRecipe = []
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], allRecipe, true)
+            }
+            normalRecipesByArcana[arcana] = allRecipe.sort((a, b) => a.cost - b.cost)
+        }
+
+        return normalRecipesByArcana
+    }
+
+    getAllTriangleRecipes() {
+        let triangleRecipesByArcana = {}
+        let arcanaList = Object.keys(this.arcanaRank).sort((a, b) => a - b)
+
+        for (let i = 0; i < arcanaList.length; i++) {
+            const arcana = arcanaList[i]
+            let recipes = this.getTriangleRecipes(arcana)
+            let allRecipe = []
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], allRecipe, true)
+            }
+            triangleRecipesByArcana[arcana] = allRecipe.sort((a, b) => a.cost - b.cost)
+        }
+
+        return triangleRecipesByArcana
+    }
+
+    /**
+     * Get the list of all recipes for the given persona (pre-calculated)
+     * @param persona The resulting persona
+     * @returns {Array} List of all recipes for the given persona
+     */
+    getRecipes_Pre(persona) {
+        if (persona.special)
+            return this.getSpecialRecipe(persona)
+
+        let allRecipe
+        if (this.recipeListTriangle[persona.arcana] === undefined) {
+            let arcanaRecipes = []
+            let recipes = this.getTriangleRecipes(persona.arcana)
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], arcanaRecipes, true)
+            }
+            this.recipeListTriangle[persona.arcana] = arcanaRecipes.sort((a, b) => a.cost - b.cost)
+        }
+        allRecipe = this.recipeListTriangle[persona.arcana]
+            .filter((recipe) => this.filterResultingPersona(recipe, persona))
+
+        if (this.recipeListNormal[persona.arcana] === undefined) {
+            let arcanaRecipes = []
+            let recipes = this.getNormalRecipes(persona.arcana)
+            for (let i = 0; i < recipes.length; i++) {
+                this.addRecipe(recipes[i], arcanaRecipes, true)
+            }
+            this.recipeListNormal[persona.arcana] = arcanaRecipes.sort((a, b) => a.cost - b.cost)
+        }
+        var r = this.recipeListNormal[persona.arcana]
+            .filter((recipe) => this.filterResultingPersona(recipe, persona))
+        allRecipe.push(...r)
+
+        return allRecipe
+    }
+
+    /**
      * Get the list of all recipes for the given persona
      * @param persona The resulting persona
      * @returns {Array} List of all recipes for the given persona
      */
     getRecipes(persona) {
-        let allRecipe = []
-
         // Check special recipes.
         if (persona.special) {
             return this.getSpecialRecipe(persona)
         }
 
+        let allRecipe = []
         let recipes = this.getNormalRecipes(persona.arcana)
         recipes = recipes.filter((recipe) => this.filterResultingPersona(recipe, persona))
         for (let i = 0; i < recipes.length; i++) {
@@ -342,12 +441,6 @@ export class FusionCalculator {
                     // if (persona2.rare && !persona1.rare) continue
 
                     let result = this.fuseNormal(persona1, persona2)
-                    // console.log({ persona1, persona2 });
-                    // console.log('Average level: ' + (1 + Math.floor((persona1.level + persona2.level) / 2)));
-                    // console.log(result);
-                    // let a = this.getResultArcana(persona1.arcana, persona2.arcana);
-                    // console.log('Arcana: ' + a);
-                    // console.log('----------------------------------------------------------------');
                     if (!result)
                         continue
 

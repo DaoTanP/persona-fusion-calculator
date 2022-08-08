@@ -7,18 +7,19 @@ export default function PersonaCard(props) {
 
     if (props.isVertical) {
         return (
-            <div className="card-v" onClick={handleClick}>
+            <div className="card" style={{ width: '180px' }} onClick={handleClick}>
                 <img
-                    className="card-v-media"
-                    src={props.image || props.persona.image}
+                    style={{ height: '150px', objectFit: 'cover' }}
+                    className="card-img-top bg-primary bg-opacity-50"
+                    src={props.image}
                     alt={props.name || props.persona.name}
                 />
-                <div>
-                    <h1 className="card-v-title">
+                <div className="card-body">
+                    <h5 className="card-title">
                         {props.name || props.persona.name}
-                    </h1>
-                    <div className="card-v-description">
-                        <p>{'Level ' + props.level || props.persona.level}</p>
+                    </h5>
+                    <div className="card-text">
+                        <p>{'Level ' + (props.level || props.persona.level)}</p>
                         <p>{props.arcana || props.persona.arcana}</p>
                     </div>
                 </div>
