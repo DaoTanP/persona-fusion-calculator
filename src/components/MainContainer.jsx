@@ -6,12 +6,12 @@ function MainContainer(props) {
 
             <div className="pagetitle">
                 <h1>{props.pageTitle}</h1>
-                <nav>
+                {/* <nav>
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li className="breadcrumb-item active">{props.pageTitle}</li>
                     </ol>
-                </nav>
+                </nav> */}
             </div>
 
             <section className="section">

@@ -1,24 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar(props) {
+
     return (
         <aside id="sidebar" className="sidebar">
 
             <ul className="sidebar-nav" id="sidebar-nav">
 
                 <li className="nav-item">
-                    <a className="nav-link " href="index.html">
+                    <Link className="nav-link collapsed" to="/">
                         <span>Home</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="nav-heading">Persona 3</li>
 
                 <li className="nav-item">
                     <a
-                        className="nav-link collapsed"
+                        className="nav-link active"
                         data-bs-target="#p3p-nav"
-                        data-bs-toggle="collapse">
+                        data-bs-toggle="collapse"
+                        aria-expanded="true">
                         <span>Persona 3 Portable</span>
                         <span className="material-symbols-outlined bi-chevron-down ms-auto">
                             expand_more
@@ -26,29 +29,32 @@ function Sidebar(props) {
                     </a>
                     <ul
                         id="p3p-nav"
-                        className="nav-content collapse"
+                        className="nav-content collapse show"
                         data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="components-alerts.html">
+                            <Link to="/persona-3-portable/recipe-generator" className="active">
                                 <span className="material-symbols-outlined">
                                     fiber_manual_record
                                 </span>
                                 <span>Recipe Generator</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="components-accordion.html">
+                            <Link to="/persona-3-portable/fusion">
                                 <span className="material-symbols-outlined">
                                     fiber_manual_record
                                 </span>
                                 <span>Fusing</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </li>
 
                 <li className="nav-item">
-                    <a className="nav-link collapsed" data-bs-target="#p3fes-nav" data-bs-toggle="collapse">
+                    <a
+                        className="nav-link collapsed"
+                        data-bs-target="#p3fes-nav"
+                        data-bs-toggle="collapse">
                         <span>Persona 3 FES</span>
                         <span className="material-symbols-outlined bi-chevron-down ms-auto">
                             expand_more
@@ -56,20 +62,20 @@ function Sidebar(props) {
                     </a>
                     <ul id="p3fes-nav" className="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="components-alerts.html">
+                            <Link to="components-alerts.html">
                                 <span className="material-symbols-outlined">
                                     fiber_manual_record
                                 </span>
                                 <span>Recipe Generator</span>
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="components-accordion.html">
+                            <Link to="components-accordion.html">
                                 <span className="material-symbols-outlined">
                                     fiber_manual_record
                                 </span>
                                 <span>Fusing</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </li>
