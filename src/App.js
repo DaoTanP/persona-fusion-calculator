@@ -9,6 +9,7 @@ import P3pRecipeGenerator from './pages/persona3portable/P3pRecipeGenerator';
 import NoPage from './pages/NoPage';
 import HomePage from './pages/HomePage';
 import P3pFusion from './pages/persona3portable/P3pFusion';
+import PageLayout from './pages/PageLayout';
 
 function App() {
 
@@ -17,13 +18,15 @@ function App() {
 
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Outlet />}>
+        {/* render shared part (component) of the website (header, footer,....) */}
+        <Route path="/" element={<PageLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="/persona-3-portable/recipe-generator" element={<P3pRecipeGenerator />} />
-          <Route path="/persona-3-portable/recipe-generator/:personaName" element={<P3pRecipeGenerator />} />
+          <Route path="/persona-3-portable/recipe-generator" element={<P3pRecipeGenerator />} >
+            <Route path="/persona-3-portable/recipe-generator/:personaName" element={<P3pRecipeGenerator />} />
+          </Route>
           <Route path="/persona-3-portable/fusion" element={<P3pFusion />} />
-          <Route path="*" element={<NoPage />} />
         </Route>
+        <Route path="*" element={<NoPage />} />
       </Routes>
     </HashRouter>
   );

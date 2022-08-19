@@ -1,159 +1,6 @@
 import React, { useState, useMemo, useEffect } from "react";
 import DataTable from "react-data-table-component";
 
-export default class RecipeGenerator extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            persona: undefined,
-            personaList: this.props.fusionCalculator.personaList,
-            recipes: undefined
-        };
-    }
-
-    handleChoosePersona = (p) => {
-        let persona = (typeof p === "string") ? this.props.fusionCalculator.getPersona(p) : p
-        this.setState({
-            persona: persona,
-            recipes: this.props.fusionCalculator.getRecipes_Pre(persona),
-            personaList: undefined
-        })
-    }
-
-    handleResetPersona = () => {
-        this.setState({
-            persona: undefined,
-            recipes: undefined,
-            personaList: this.props.fusionCalculator.personaList
-        })
-    }
-
-    noRecipe = (
-        <div className="container-fluid py-5 text-center">
-            <h3>No recipe found</h3>
-        </div>
-    )
-
-    render() {
-        const customColor = {
-            '--bs-link-color': this.props.primaryColor,
-            '--bs-link-hover-color': this.props.primaryColor,
-            '--bs-primary': this.props.primaryColor,
-            '--bs-primary-rgb': this.props.primaryColorRGB,
-        }
-        const btnColor = {
-            '--bs-btn-bg': this.props.primaryColor,
-            '--bs-btn-border-color': this.props.primaryColor,
-            '--bs-btn-hover-bg': this.props.primaryColor,
-            '--bs-btn-hover-border-color': this.props.primaryColor,
-            '--bs-btn-focus-shadow-rgb': this.props.primaryColorRGB,
-            '--bs-btn-active-bg': this.props.primaryColor,
-            '--bs-btn-active-border-color': this.props.primaryColor,
-            '--bs-btn-disabled-color': this.props.primaryColor,
-            '--bs-btn-disabled-border-color': this.props.primaryColor,
-        }
-        const btnOutlinedColor = {
-            '--bs-btn-color': this.props.primaryColor,
-            '--bs-btn-border-color': this.props.primaryColor,
-            '--bs-btn-hover-bg': this.props.primaryColor,
-            '--bs-btn-hover-border-color': this.props.primaryColor,
-            '--bs-btn-focus-shadow-rgb': this.props.primaryColorRGB,
-            '--bs-btn-active-bg': this.props.primaryColor,
-            '--bs-btn-active-border-color': this.props.primaryColor,
-            '--bs-btn-disabled-color': this.props.primaryColor,
-            '--bs-btn-disabled-border-color': this.props.primaryColor,
-        }
-        if (!this.state.persona) {
-            return (
-                // <div className="tab-pane active" style={{ borderRadius: 'var(--tab-border-radius)', padding: '1rem', overflow: 'hidden' }}>
-                // </div>
-                <PersonaTable
-                    personaList={this.state.personaList}
-                    handleChoosePersona={this.handleChoosePersona}
-                />
-            )
-        }
-        else {
-            let normalRecipes = undefined,
-                triangleRecipes = undefined,
-                specialRecipes = undefined;
-            if (!this.state.persona.special) {
-                normalRecipes = this.state.recipes.filter(r => (r.sources.length === 2))
-                if (normalRecipes && normalRecipes.length <= 0)
-                    normalRecipes = undefined
-
-                triangleRecipes = this.state.recipes.filter(r => (r.sources.length === 3))
-                if (triangleRecipes && triangleRecipes.length <= 0)
-                    triangleRecipes = undefined
-            }
-            else {
-                specialRecipes = this.state.recipes
-            }
-
-            return (
-                <div className="card container-fluid" style={customColor}>
-                    <h5 className="card-title">
-                        {this.state.persona.name}
-                        <span> | Total recipes: {this.state.recipes.length}</span>
-                    </h5>
-                    <button
-                        className="btn btn-primary btn-sm position-absolute end-0 top-0 mt-2 me-2"
-                        style={{ ...customColor, ...btnColor }}
-                        onClick={this.handleResetPersona}>
-                        <span className="material-symbols-outlined">
-                            close
-                        </span>
-                    </button>
-
-                    <ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link px-2 active" id="normal-tab" data-bs-toggle="tab" data-bs-target="#bordered-normal" type="button" role="tab" aria-controls="normal" aria-selected="true">Normal</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link px-2" id="triangle-tab" data-bs-toggle="tab" data-bs-target="#bordered-triangle" type="button" role="tab" aria-controls="triangle" aria-selected="false">Triangle</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link px-2" id="special-tab" data-bs-toggle="tab" data-bs-target="#bordered-special" type="button" role="tab" aria-controls="special" aria-selected="false">Special</button>
-                        </li>
-                    </ul>
-                    <div class="tab-content pt-2" id="borderedTabContent">
-                        <div class="tab-pane fade show active" id="bordered-normal" role="tabpanel" aria-labelledby="normal-tab">
-                            {
-                                normalRecipes ?
-                                    <RecipeTable
-                                        recipeList={normalRecipes}
-                                        handleChoosePersona={this.handleChoosePersona}
-                                    />
-                                    : this.noRecipe
-                            }
-                        </div>
-                        <div class="tab-pane fade" id="bordered-triangle" role="tabpanel" aria-labelledby="triangle-tab">
-                            {
-                                triangleRecipes ?
-                                    <RecipeTable
-                                        recipeList={triangleRecipes}
-                                        handleChoosePersona={this.handleChoosePersona}
-                                    />
-                                    : this.noRecipe
-                            }
-                        </div>
-                        <div class="tab-pane fade" id="bordered-special" role="tabpanel" aria-labelledby="special-tab">
-                            {
-                                specialRecipes ?
-                                    <RecipeTable
-                                        recipeList={specialRecipes}
-                                        handleChoosePersona={this.handleChoosePersona}
-                                    />
-                                    : this.noRecipe
-                            }
-                        </div>
-                    </div>
-                </div>
-            );
-        }
-    }
-}
-
 const styles = {
     table: {
         style: {
@@ -249,6 +96,22 @@ const FilterComponent = ({ filterText, onFilter, onClear }) => (
         </div>
     </>
 );
+
+export function ComponentLoading(Component) {
+    return function LoadingComponent({ isLoading, ...props }) {
+        if (!isLoading) return <Component {...props} />;
+        return (
+            <div className="container-fluid d-flex flex-column align-items-center justify-content-center" style={{ height: '10rem' }}>
+                <p className="fs-1 text-primary">
+                    Generating recipes...
+                </p>
+                <div className="spinner-border" style={{ width: '2.5rem', height: '2.5rem' }} role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        );
+    };
+}
 
 export function RecipeTable(props) {
 
@@ -443,10 +306,10 @@ const SelectDropdown = ({ id, personaList, onChange }) => {
 
     return (
         <select id={id} className="form-select" aria-label="Select persona to fuse" onChange={onChange}>
-            <option selected>Choose persona</option>
+            <option selected value={undefined}>Choose persona</option>
             {
                 personaList.map(p => (
-                    <option value={p.name}>{p.name}</option>
+                    <option key={p.name} value={p.name}>{p.name}</option>
                 ))
             }
         </select>
@@ -510,13 +373,17 @@ const FusionCard = (props) => {
     )
 }
 
-export function FusionTable(props) {
-
-    const [personaArr, setPersonaArr] = useState({});
+function NormalFusion(props) {
+    const [personaArr, setPersonaArr] = useState(new Array(2).fill(undefined));
     const [fusionResult, setFusionResult] = useState(undefined);
 
     const handleChange = (persona, index) => {
-        setPersonaArr(prev => ({ ...prev, [index]: persona }))
+        setPersonaArr(personaArr.map((p, i) => {
+            if (i === index)
+                return persona
+
+            return p
+        }))
     }
 
     // useEffect(() => {
@@ -528,135 +395,173 @@ export function FusionTable(props) {
 
     // }, [personaArr])
 
-    const ResetState = () => {
-        setPersonaArr({})
-        setFusionResult(undefined)
+    const handleFuse = e => {
+        setFusionResult(props.fusionCalculator.fuseNormal(...personaArr))
     }
 
-    const handleFuse = () => {
-        const p = Object.values(personaArr)
-        if (p.length === 2)
-            setFusionResult(props.fusionCalculator.fuseNormal(...p))
-        if (p.length === 3)
-            setFusionResult(props.fusionCalculator.fuseTriangle(...p))
+    return (
+        <>
+            <div className="container-fluid">
+                <div className="row">
+                    <FusionCard
+                        index={0}
+                        title='Persona 1'
+                        fusionCalculator={props.fusionCalculator}
+                        personaList={props.personaList}
+                        onChange={handleChange}
+                    />
+
+                    <div className="col-4"></div>
+
+                    <FusionCard
+                        index={1}
+                        title='Persona 2'
+                        fusionCalculator={props.fusionCalculator}
+                        personaList={props.personaList}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="row">
+                    <button className="col btn btn-primary" onClick={handleFuse}>
+                        Fuse
+                    </button>
+                </div>
+
+                <div className="row mt-3">
+                    <div className="card container-fluid col-12">
+                        <h1 className="card-title">
+                            Result
+                        </h1>
+                        <div className="mb-3">
+                            <p>Name</p>
+                            <input type="text" disabled className="form-control" value={fusionResult?.name || ''} />
+                        </div>
+                        <div className="mb-3">
+                            <p>Level</p>
+                            <input type="number" disabled className="form-control" min='1' max='99' value={fusionResult?.level || ''} />
+                        </div>
+                        <div className="mb-3">
+                            <p>Arcana</p>
+                            <input type="text" disabled className="form-control" value={fusionResult?.arcana || ''} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+function TriangleFusion(props) {
+    const [personaArr, setPersonaArr] = useState(new Array(3).fill(undefined));
+    const [fusionResult, setFusionResult] = useState(undefined);
+
+    const handleChange = (persona, index) => {
+        setPersonaArr(personaArr.map((p, i) => {
+            if (i === index)
+                return persona
+
+            return p
+        }))
     }
+
+    // useEffect(() => {
+    //     console.log(fusionResult);
+
+    // }, [fusionResult])
+    // useEffect(() => {
+    //     console.log(personaArr);
+
+    // }, [personaArr])
+
+    const handleFuse = e => {
+        setFusionResult(props.fusionCalculator.fuseTriangle(...personaArr))
+    }
+
+    return (
+        <>
+            <div className="container-fluid">
+                <div className="row gap-1">
+                    <FusionCard
+                        index={0}
+                        title='Persona 1'
+                        fusionCalculator={props.fusionCalculator}
+                        personaList={props.personaList}
+                        onChange={handleChange}
+                    />
+
+                    <FusionCard
+                        index={1}
+                        title='Persona 2'
+                        fusionCalculator={props.fusionCalculator}
+                        personaList={props.personaList}
+                        onChange={handleChange}
+                    />
+
+                    <FusionCard
+                        index={2}
+                        title='Persona 3'
+                        fusionCalculator={props.fusionCalculator}
+                        personaList={props.personaList}
+                        onChange={handleChange}
+                    />
+                </div>
+
+                <div className="row">
+                    <button name='triangle' className="col btn btn-primary" onClick={handleFuse}>
+                        Fuse
+                    </button>
+                </div>
+
+                <div className="row mt-3">
+                    <div className="card container-fluid col-12">
+                        <h1 className="card-title">
+                            Result
+                        </h1>
+                        <div className="mb-3">
+                            <p>Name</p>
+                            <input type="text" disabled className="form-control" value={fusionResult?.name || ''} />
+                        </div>
+                        <div className="mb-3">
+                            <p>Level</p>
+                            <input type="number" disabled className="form-control" min='1' max='99' value={fusionResult?.level || ''} />
+                        </div>
+                        <div className="mb-3">
+                            <p>Arcana</p>
+                            <input type="text" disabled className="form-control" value={fusionResult?.arcana || ''} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </>
+    );
+}
+
+export function FusionTable(props) {
 
     return (
         <>
             <ul className="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
                 <li className="nav-item" role="presentation">
-                    <button onClick={ResetState} className="nav-link px-2 active" id="normal-tab" data-bs-toggle="tab" data-bs-target="#bordered-normal" type="button" role="tab" aria-controls="normal" aria-selected="true">Normal</button>
+                    <button className="nav-link px-2 active" id="normal-tab" data-bs-toggle="tab" data-bs-target="#bordered-normal" type="button" role="tab" aria-controls="normal" aria-selected="true">Normal</button>
                 </li>
                 <li className="nav-item" role="presentation">
-                    <button onClick={ResetState} className="nav-link px-2" id="triangle-tab" data-bs-toggle="tab" data-bs-target="#bordered-triangle" type="button" role="tab" aria-controls="triangle" aria-selected="false">Triangle</button>
+                    <button className="nav-link px-2" id="triangle-tab" data-bs-toggle="tab" data-bs-target="#bordered-triangle" type="button" role="tab" aria-controls="triangle" aria-selected="false">Triangle</button>
                 </li>
             </ul>
             <div className="tab-content pt-2" id="borderedTabContent">
                 <div className="tab-pane fade show active" id="bordered-normal" role="tabpanel" aria-labelledby="normal-tab">
-                    <div className="container-fluid">
-                        <div className="row">
-                            <FusionCard
-                                index={0}
-                                title='Persona 1'
-                                levelEditDisabled
-                                fusionCalculator={props.fusionCalculator}
-                                personaList={props.personaList}
-                                onChange={handleChange}
-                            />
-
-                            <div className="col-4"></div>
-
-                            <FusionCard
-                                index={1}
-                                title='Persona 2'
-                                levelEditDisabled
-                                fusionCalculator={props.fusionCalculator}
-                                personaList={props.personaList}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="row">
-                            <button className="col btn btn-primary" onClick={handleFuse}>
-                                Fuse
-                            </button>
-                        </div>
-
-                        <div className="row mt-3">
-                            <div className="card container-fluid col-12">
-                                <h1 className="card-title">
-                                    Result
-                                </h1>
-                                <div className="mb-3">
-                                    <p>Name</p>
-                                    <input type="text" disabled className="form-control" value={fusionResult?.name || ''} />
-                                </div>
-                                <div className="mb-3">
-                                    <p>Level</p>
-                                    <input type="number" disabled className="form-control" min='1' max='99' value={fusionResult?.level || ''} />
-                                </div>
-                                <div className="mb-3">
-                                    <p>Arcana</p>
-                                    <input type="text" disabled className="form-control" value={fusionResult?.arcana || ''} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <NormalFusion
+                        personaList={props.personaList}
+                        fusionCalculator={props.fusionCalculator}
+                    />
                 </div>
                 <div className="tab-pane fade" id="bordered-triangle" role="tabpanel" aria-labelledby="triangle-tab">
-                    <div className="container-fluid">
-                        <div className="row gap-1">
-                            <FusionCard
-                                index={0}
-                                title='Persona 1'
-                                fusionCalculator={props.fusionCalculator}
-                                personaList={props.personaList}
-                                onChange={handleChange}
-                            />
-
-                            <FusionCard
-                                index={1}
-                                title='Persona 2'
-                                fusionCalculator={props.fusionCalculator}
-                                personaList={props.personaList}
-                                onChange={handleChange}
-                            />
-
-                            <FusionCard
-                                index={2}
-                                title='Persona 3'
-                                fusionCalculator={props.fusionCalculator}
-                                personaList={props.personaList}
-                                onChange={handleChange}
-                            />
-                        </div>
-
-                        <div className="row">
-                            <button className="col btn btn-primary" onClick={handleFuse}>
-                                Fuse
-                            </button>
-                        </div>
-
-                        <div className="row mt-3">
-                            <div className="card container-fluid col-12">
-                                <h1 className="card-title">
-                                    Result
-                                </h1>
-                                <div className="mb-3">
-                                    <p>Name</p>
-                                    <input type="text" disabled className="form-control" value={fusionResult?.name || ''} />
-                                </div>
-                                <div className="mb-3">
-                                    <p>Level</p>
-                                    <input type="number" disabled className="form-control" min='1' max='99' value={fusionResult?.level || ''} />
-                                </div>
-                                <div className="mb-3">
-                                    <p>Arcana</p>
-                                    <input type="text" disabled className="form-control" value={fusionResult?.arcana || ''} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <TriangleFusion
+                        personaList={props.personaList}
+                        fusionCalculator={props.fusionCalculator}
+                    />
                 </div>
             </div>
 

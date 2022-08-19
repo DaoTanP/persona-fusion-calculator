@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import persona from '../../data/persona3p_personae'
 import { arcana2Combos, arcana3Combos, specialCombos } from "../../data/persona3p_fusion";
 import { FusionCalculator } from "../../helpers/personaUtils";
-import PageLayout from '../PageLayout';
-import { PersonaTable, RecipeTable } from '../../components/FusionHelper';
+import { ComponentLoading, PersonaTable, RecipeTable } from '../../components/FusionHelper';
 
 const calculator = new FusionCalculator(persona, arcana2Combos, arcana3Combos, specialCombos)
 
@@ -20,14 +19,12 @@ export default function P3pRecipeGenerator() {
 
     const handleChoosePersona = (p) => {
         let persona = (typeof p === "string") ? calculator.getPersona(p) : p
-        navigate(persona.name)
+
+        navigate(persona.name);
     }
 
     return (
-        <PageLayout
-            webTitle='Fusion Helper'
-            pageTitle='Persona 3 Portable Recipe Generator'
-        >
+        <>
             {
                 personaName ?
                     <RecipeTab
@@ -41,35 +38,70 @@ export default function P3pRecipeGenerator() {
                         handleChoosePersona={handleChoosePersona}
                     />
             }
-        </PageLayout>
+        </>
     );
 
 }
 
 const RecipeTab = ({ personaName, handleChoosePersona }) => {
     let p = calculator.getPersona(personaName);
-    let recipes = calculator.getRecipes_Pre(p);
+
+    const [appState, setAppState] = useState({
+        loading: true,
+        recipes: null,
+    });
+
+    // useEffect(() => {
+    //     // setAppState({ loading: true });
+
+    //     calculator.getRecipes_async(p).then((list) => {
+    //         setAppState({ loading: false, recipes: list });
+    //     });
+    // }, [setAppState]);
+
+    useEffect(() => {
+        setAppState({ loading: true });
+        p = calculator.getPersona(personaName);
+
+        calculator.getRecipes_async(p).then((list) => {
+            setAppState({ loading: false, recipes: list });
+        });
+    }, [personaName]);
+
+    const TabComponent = ComponentLoading(Tab);
+
+    return (
+        <TabComponent
+            isLoading={appState.loading}
+            persona={p}
+            recipes={appState.recipes}
+            handleChoosePersona={handleChoosePersona}
+        />
+    )
+}
+
+const Tab = (props) => {
     let normalRecipes = undefined,
         triangleRecipes = undefined,
         specialRecipes = undefined;
-    if (!p.special) {
-        normalRecipes = recipes.filter(r => (r.sources.length === 2))
+    if (!props.persona.special) {
+        normalRecipes = props.recipes.filter(r => (r.sources.length === 2))
         if (normalRecipes && normalRecipes.length <= 0)
             normalRecipes = undefined
 
-        triangleRecipes = recipes.filter(r => (r.sources.length === 3))
+        triangleRecipes = props.recipes.filter(r => (r.sources.length === 3))
         if (triangleRecipes && triangleRecipes.length <= 0)
             triangleRecipes = undefined
     }
     else {
-        specialRecipes = recipes
+        specialRecipes = props.recipes
     }
 
     return (
         <div className="card container-fluid">
             <h5 className="card-title">
-                {personaName}
-                <span> | Total recipes: {recipes.length}</span>
+                {props.persona.name}
+                <span> | Total recipes: {props.recipes?.length || 'N/A'}</span>
             </h5>
 
             <ul className="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
@@ -89,7 +121,7 @@ const RecipeTab = ({ personaName, handleChoosePersona }) => {
                         normalRecipes ?
                             <RecipeTable
                                 recipeList={normalRecipes}
-                                handleChoosePersona={handleChoosePersona}
+                                handleChoosePersona={props.handleChoosePersona}
                             />
                             : noRecipe
                     }
@@ -99,7 +131,7 @@ const RecipeTab = ({ personaName, handleChoosePersona }) => {
                         triangleRecipes ?
                             <RecipeTable
                                 recipeList={triangleRecipes}
-                                handleChoosePersona={handleChoosePersona}
+                                handleChoosePersona={props.handleChoosePersona}
                             />
                             : noRecipe
                     }
@@ -109,7 +141,7 @@ const RecipeTab = ({ personaName, handleChoosePersona }) => {
                         specialRecipes ?
                             <RecipeTable
                                 recipeList={specialRecipes}
-                                handleChoosePersona={handleChoosePersona}
+                                handleChoosePersona={props.handleChoosePersona}
                             />
                             : noRecipe
                     }

@@ -171,10 +171,21 @@ export class FusionCalculator {
             }
         } else {
             // different-arcana fusion
-            for (let i = 0; i < personae.length; i++) {
+            // for (let i = 0; i < personae.length; i++) {
+            //     persona = personae[i]
+            //     if (persona.level >= level) {
+            //         if (persona.special /*|| persona.rare*/) continue
+            //         found = true
+            //         break
+            //     }
+            // }
+            for (let i = personae.length - 1; i >= 0; i--) {
                 persona = personae[i]
-                if (persona.level >= level) {
-                    if (persona.special /*|| persona.rare*/) continue
+                if (persona.level <= level) {
+                    if (persona.special || /* persona.rare || */
+                        persona === persona1 || persona === persona2)
+                        continue
+
                     found = true
                     break
                 }
@@ -195,6 +206,10 @@ export class FusionCalculator {
 
         let level = 5 + Math.floor((persona1.level + persona2.level + persona3.level) / 3);
         let arcana = this.getResultArcana(persona1, persona2, persona3)
+        if (arcana === null) {
+            return null;
+        }
+
         let personae = this.personaeByArcana[arcana];
 
         let found = false;
@@ -207,6 +222,15 @@ export class FusionCalculator {
                 break;
             }
         }
+        // let i = personae.length - 1;
+        // for (; i >= 0; i--) {
+        //     let persona = personae[i]
+        //     if (persona.level <= level) {
+        //         if (persona.special) continue;
+        //         found = true;
+        //         break;
+        //     }
+        // }
         if (!found) return null;
 
         // In same arcana fusion, skip over the ingredients.
@@ -338,11 +362,11 @@ export class FusionCalculator {
     }
 
     /**
-     * Get the list of all recipes for the given persona (pre-calculated)
+     * Get the list of all recipes for the given persona (async)
      * @param persona The resulting persona
      * @returns {Array} List of all recipes for the given persona
      */
-    getRecipes_Pre(persona) {
+    async getRecipes_async(persona) {
         if (persona.special)
             return this.getSpecialRecipe(persona)
 
@@ -502,13 +526,15 @@ export class FusionCalculator {
 
     fuseArcana(arcana1, arcana2, arcanaCombos) {
         let arcana = null
-        arcanaCombos.forEach(combo => {
+        for (let i = 0; i < arcanaCombos.length; i++) {
+            const combo = arcanaCombos[i];
+
             let a1 = combo.source[0], a2 = combo.source[1]
             if ((a1 === arcana1 && a2 === arcana2) ||
                 (a1 === arcana2 && a2 === arcana1)) {
                 arcana = combo.result
             }
-        })
+        }
 
         return arcana
     }

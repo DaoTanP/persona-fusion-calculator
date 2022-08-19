@@ -1,22 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-function Sidebar(props) {
+export default function Sidebar(props) {
 
     return (
         <aside id="sidebar" className="sidebar">
 
             <ul className="sidebar-nav" id="sidebar-nav">
 
-                <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/">
-                        <span>Home</span>
-                    </Link>
-                </li>
+                <NavLink to="/">Home</NavLink>
 
-                <li className="nav-heading">Persona 3</li>
+                <li className="nav-heading">Persona 3 Portable</li>
 
-                <li className="nav-item">
+                <NavLink to="/persona-3-portable/recipe-generator">Recipe Generator</NavLink>
+                <NavLink to="/persona-3-portable/fusion">Fusion</NavLink>
+
+                {/* <li className="nav-item">
                     <a
                         className="nav-link active"
                         data-bs-target="#p3p-nav"
@@ -48,9 +47,9 @@ function Sidebar(props) {
                             </Link>
                         </li>
                     </ul>
-                </li>
+                </li> */}
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                     <a
                         className="nav-link collapsed"
                         data-bs-target="#p3fes-nav"
@@ -78,7 +77,7 @@ function Sidebar(props) {
                             </Link>
                         </li>
                     </ul>
-                </li>
+                </li> */}
 
             </ul>
 
@@ -86,4 +85,19 @@ function Sidebar(props) {
     );
 }
 
-export default Sidebar;
+function NavLink(props) {
+    const path = useResolvedPath(props.to);
+    const isActive = useMatch({
+        path: path.pathname,
+        end: (props.to === '/'), //match exact path
+    })
+    // console.log(path.pathname + " " + props.to);
+
+    return (
+        <li className="nav-item">
+            <Link className={isActive ? "nav-link" : "nav-link collapsed"} to={props.to}>
+                <span>{props.children}</span>
+            </Link>
+        </li>
+    );
+}
