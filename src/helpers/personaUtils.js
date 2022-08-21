@@ -181,7 +181,7 @@ export class FusionCalculator {
             // }
             for (let i = personae.length - 1; i >= 0; i--) {
                 persona = personae[i]
-                if (persona.level <= level) {
+                if (persona.level >= level) {
                     if (persona.special || /* persona.rare || */
                         persona === persona1 || persona === persona2)
                         continue
