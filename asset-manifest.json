@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/persona-fusion-calculator/static/css/main.4d57628f.css",
-    "main.js": "/persona-fusion-calculator/static/js/main.66d0c6cd.js",
+    "main.js": "/persona-fusion-calculator/static/js/main.2c9abfb1.js",
     "static/js/787.19cf879b.chunk.js": "/persona-fusion-calculator/static/js/787.19cf879b.chunk.js",
     "static/media/material-symbols-rounded.woff2": "/persona-fusion-calculator/static/media/material-symbols-rounded.bcc23cd7a86703ca550b.woff2",
     "static/media/material-symbols-outlined.woff2": "/persona-fusion-calculator/static/media/material-symbols-outlined.6d3deace3b8cddc5262a.woff2",
     "static/media/material-symbols-sharp.woff2": "/persona-fusion-calculator/static/media/material-symbols-sharp.e086f4cf5e1e4e228668.woff2",
     "index.html": "/persona-fusion-calculator/index.html",
     "main.4d57628f.css.map": "/persona-fusion-calculator/static/css/main.4d57628f.css.map",
-    "main.66d0c6cd.js.map": "/persona-fusion-calculator/static/js/main.66d0c6cd.js.map",
+    "main.2c9abfb1.js.map": "/persona-fusion-calculator/static/js/main.2c9abfb1.js.map",
     "787.19cf879b.chunk.js.map": "/persona-fusion-calculator/static/js/787.19cf879b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d57628f.css",
-    "static/js/main.66d0c6cd.js"
+    "static/js/main.2c9abfb1.js"
   ]
 }
