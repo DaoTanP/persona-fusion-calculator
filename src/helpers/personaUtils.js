@@ -1,3 +1,4 @@
+import persona from "../data/persona3p_personae";
 
 export class FusionCalculator {
     constructor(personaList, arcana2Combos = undefined, arcana3Combos = undefined, specialCombos = undefined) {
@@ -171,21 +172,10 @@ export class FusionCalculator {
             }
         } else {
             // different-arcana fusion
-            // for (let i = 0; i < personae.length; i++) {
-            //     persona = personae[i]
-            //     if (persona.level >= level) {
-            //         if (persona.special /*|| persona.rare*/) continue
-            //         found = true
-            //         break
-            //     }
-            // }
-            for (let i = personae.length - 1; i >= 0; i--) {
+            for (let i = 0; i < personae.length; i++) {
                 persona = personae[i]
                 if (persona.level >= level) {
-                    if (persona.special || /* persona.rare || */
-                        persona === persona1 || persona === persona2)
-                        continue
-
+                    if (persona.special /*|| persona.rare*/) continue
                     found = true
                     break
                 }
@@ -211,26 +201,28 @@ export class FusionCalculator {
         }
 
         let personae = this.personaeByArcana[arcana];
-
         let found = false;
         let i = 0;
-        for (; i < personae.length; i++) {
-            let persona = personae[i]
-            if (persona.level >= level) {
-                if (persona.special) continue;
-                found = true;
-                break;
+
+        // in case the base level exceed the base level 
+        // of the highest level persona in result arcana
+        let p = personae[personae.length - 1];
+        if (p.level < level && !p.special && !found) {
+            i = personae.length - 1;
+            found = true;
+        }
+
+        if (!found) {
+            for (; i < personae.length; i++) {
+                let persona = personae[i]
+                if (persona.level >= level) {
+                    if (persona.special) continue;
+                    found = true;
+                    break;
+                }
             }
         }
-        // let i = personae.length - 1;
-        // for (; i >= 0; i--) {
-        //     let persona = personae[i]
-        //     if (persona.level <= level) {
-        //         if (persona.special) continue;
-        //         found = true;
-        //         break;
-        //     }
-        // }
+
         if (!found) return null;
 
         // In same arcana fusion, skip over the ingredients.

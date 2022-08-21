@@ -476,6 +476,11 @@ function TriangleFusion(props) {
 
     const handleFuse = e => {
         setFusionResult(props.fusionCalculator.fuseTriangle(...personaArr))
+
+        // debugging
+        // let a = props.fusionCalculator.getResultArcana(...personaArr)
+        // console.log('Result Arcana: ' + a);
+        // console.log(props.fusionCalculator.personaeByArcana[a]);
     }
 
     return (
